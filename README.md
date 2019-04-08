@@ -1,0 +1,1 @@
+# Equitone_Calculador
