@@ -165,7 +165,7 @@
         <div class="row">
             <div class="col-md-12 text-center mt62 p0">
                 <a href="{{ asset('/') }}" class="big-gray-btn">Volver</a>
-                <a href="#" class="big-orange-btn">Calcular</a>
+                <a href="{{ asset('/paso3') }}" class="big-orange-btn">Calcular</a>
             </div>
         </div>
     </div>
