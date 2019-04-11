@@ -27,7 +27,7 @@
             <div class="m-wrap">
                 <div class="col-md-12 p0 mt20">
                     <img src="img/fachada_revestir.png" alt="" style="position: absolute;top: 1px;">
-                    <h4 class="table_title">Fachadas <span class="grey">a revestir</span>
+                    <h4 class="table_title">Fachadas a revestir
                         <let class="light">(Superficie y diseño)</let>
                     </h4>
                 </div>
@@ -39,10 +39,10 @@
                         <th></th>
                     </tr>
                     <tr>
-                        <td class="first-line"><img src="img/rectangulo.png" alt=""> Fachada - rectangular</td>
+                        <td class="first-line"><img src="img/rectangulo.png" alt=""> Fachada principal</td>
                         <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
                         <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                        <td class="plus plus-fachada">+</td>
+                        <td class="plus plus-fachada tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada a revestir.</span></td>
                     </tr>
                 </table>
             </div>
@@ -53,12 +53,12 @@
                         <td class="first-line"><img src="img/triangulo.png" alt=""> Fachada - triangular</td>
                         <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
                         <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                        <td class="plus plus-triangular">+</td>
+                        <td class="plus plus-triangular tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada triangular.</span></td>
                     </tr>
                 </table>
             </div>
         </div>
-        
+
         <!--BOTONES-->
         <div class="row">
             <div class="large-button">
@@ -88,7 +88,7 @@
                             <td class="first-line"><img src="img/rectangulo.png" alt=""> Puerta</td>
                             <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
                             <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                            <td class="plus plus-puertas">+</td>
+                            <td class="plus plus-puertas tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra puerta.</span></td>
                         </tr>
                     </table>
                 </div>
@@ -99,14 +99,14 @@
                             <td class="first-line"><img src="img/ventana.png" alt=""> Ventana</td>
                             <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
                             <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                            <td class="plus plus-ventana">+</td>
+                            <td class="plus plus-ventana tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra ventana.</span></td>
                         </tr>
                     </table>
                 </div>
             </section>
 
             <div class="large-button">
-                <h3>Quiere utilizar perfiles de remate?</h3>
+                <h3>Quiere utilizar perfiles de inicio y terminación?</h3>
                 <div class="btn-container">
                     <a href="#" class="orange-btn" id="btnPerfilesSi">Si</a>
                     <a href="#" class="gray-btn" id="btnPerfilesNo">No</a>
@@ -117,7 +117,7 @@
                 <div class="m-wrap">
                     <div class="col-md-12 p0 mt20">
                         <img src="img/fachada_revestir.png" alt="" style="position: absolute;top: 1px;">
-                        <h4 class="table_title">Esquinas
+                        <h4 class="table_title">Esquinas de inicio y terminación
                             <let class="light">(Externas, Internas y Cierre lateral)</let>
                         </h4>
                     </div>
@@ -150,10 +150,22 @@
             </section>
 
         </div>
+        
+        <hr style="margin-bottom: 0px;margin-top:30px;">
+        <div class="m-wrap">
+            <div class="total-row">
+                <p>TOTAL</p>
+                <div class="divider-dotted"></div>
+                <p class="total-mt">
+                    <let id="totalMts">100.456</let> mts</p>
+            </div>
+        </div>
+        <hr>
+
         <div class="row">
             <div class="col-md-12 text-center mt62 p0">
                 <a href="{{ asset('/') }}" class="big-gray-btn">Volver</a>
-                <a href="#" class="big-orange-btn">Finalizar</a>
+                <a href="#" class="big-orange-btn">Calcular</a>
             </div>
         </div>
     </div>
@@ -191,7 +203,7 @@
     $('.plus-fachada').on('click', function(e) {
         if (cantFachadas <= 3) {
             var trPuertas = '<tr>';
-            trPuertas += '<td class="first-line"><img src="img/rectangulo.png" alt=""> Fachada - rectangular</td>';
+            trPuertas += '<td class="first-line"><img src="img/rectangulo.png" alt=""> Fachada nro. '+ (cantFachadas + 1) +'</td>';
             trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
             trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
             trPuertas += "<td class='less' onclick='quitarElement(this,\"rectangular\")'>-</td>";
@@ -208,7 +220,7 @@
     });
 
     $('.plus-triangular').on('click', function(e) {
-        if (cantFachadasTriangulares <= 1){
+        if (cantFachadasTriangulares <= 1) {
             var trPuertas = '<tr>';
             trPuertas += '<td class="first-line"><img src="img/triangulo.png" alt=""> Fachada - triangular</td>';
             trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
@@ -217,7 +229,7 @@
             trPuertas += '</tr>';
             $('#tableTriangular').append(trPuertas);
             cantFachadasTriangulares += 1;
-        }else{
+        } else {
             Swal.fire({
                 text: 'Puede seleccionar un máximo de 2 fachadas triangulares.',
                 type: 'info',
@@ -225,8 +237,8 @@
             })
         }
     });
-    
-    $('.plus-puertas').on('click', function(e){
+
+    $('.plus-puertas').on('click', function(e) {
         var trPuertas = '<tr>';
         trPuertas += '<td class="first-line"><img src="img/rectangulo.png" alt=""> Puerta</td>';
         trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
@@ -235,8 +247,8 @@
         trPuertas += '</tr>';
         $('#tablePuertas').append(trPuertas);
     });
-    
-    $('.plus-ventana').on('click', function(e){
+
+    $('.plus-ventana').on('click', function(e) {
         var trPuertas = '<tr>';
         trPuertas += '<td class="first-line"><img src="img/ventana.png" alt=""> Ventana</td>';
         trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
@@ -248,10 +260,10 @@
 
     function quitarElement(obj, tipo) {
         obj.closest('tr').remove();
-        if(tipo == 'rectangular'){
+        if (tipo == 'rectangular') {
             cantFachadas -= 1;
         }
-        if(tipo == 'triangular'){
+        if (tipo == 'triangular') {
             cantFachadasTriangulares -= 1;
         }
     }

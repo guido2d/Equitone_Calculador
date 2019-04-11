@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-md-5 p0">
                         <div class="flex-container">
-                            <span class="title">Como rebestimiento <br>sobre albañilería
+                            <span class="title">Rebestimiento <br>sobre albañilería
                                 <br>
                                 <a href="{{ asset('/paso2?tipo=rebestimiento') }}" class="orange-link">Calcular ></a>
                                 </span>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-md-5 p0">
                         <div class="flex-container">
-                            <span class="title">Como cerramiento <br>sobre construcción liviana
+                            <span class="title">Cerramiento <br>sobre construcción liviana
                                 <br>
                                 <a href="{{ asset('/paso2?tipo=cerramiento') }}" class="orange-link">Calcular ></a>
                                 </span>
