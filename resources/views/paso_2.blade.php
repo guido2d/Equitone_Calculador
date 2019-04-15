@@ -174,5 +174,5 @@
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-<script src="{{ asset('js/calculador.js') }}"></script>
+<script src="{{ asset('js/calculador.js?v=1') }}"></script>
 @endsection
