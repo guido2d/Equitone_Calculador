@@ -249,8 +249,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
 <script>
-    var cantFachadas = @if(is_array($fachadas_rectangulares)) {{ sizeof($fachadas_rectangulares) }} @endif;
-    var cantFachadasTriangulares = @if(is_array($fachadas_triangulares)) {{ sizeof($fachadas_triangulares) }} @endif;
+    var cantFachadas = @if(is_array($fachadas_rectangulares)) {{ sizeof($fachadas_rectangulares) }} @else 1 @endif;
+    var cantFachadasTriangulares = @if(is_array($fachadas_triangulares)) {{ sizeof($fachadas_triangulares) }} @else 1 @endif;
     var mt2aRevestir = {{ number_format($mt2, 2, '.', '') }};
     var perfilBase = {{ number_format($perfilBase, 2, '.', '') }};
 
@@ -479,9 +479,9 @@
 
         });
         
-        var puertas = @if(is_array($puertas)) "{{ sizeof($puertas) }}" @endif;
-        var ventanas = @if(is_array($ventanas)) "{{ sizeof($ventanas) }}" @endif;
-        var perfiles = @if(is_array($perfiles))"{{ sizeof($perfiles) }}" @endif;
+        var puertas = @if(is_array($puertas)) "{{ sizeof($puertas) }}" @else 0 @endif;
+        var ventanas = @if(is_array($ventanas)) "{{ sizeof($ventanas) }}" @else 0 @endif;
+        var perfiles = @if(is_array($perfiles))"{{ sizeof($perfiles) }}" @else 0 @endif;
         
         if(puertas > 0 || ventanas > 0){
             $("#puertasyventanas").slideDown();
