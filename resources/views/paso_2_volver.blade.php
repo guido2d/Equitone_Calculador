@@ -480,8 +480,8 @@
         });
         
         var puertas = @if(is_array($puertas)) "{{ sizeof($puertas) }}" @endif;
-        var ventanas = "{{ sizeof($ventanas) }}";
-        var perfiles = "{{ sizeof($perfiles) }}";
+        var ventanas = @if(is_array($ventanas)) "{{ sizeof($ventanas) }}" @endif;
+        var perfiles = @if(is_array($perfiles))"{{ sizeof($perfiles) }}" @endif;
         
         if(puertas > 0 || ventanas > 0){
             $("#puertasyventanas").slideDown();
