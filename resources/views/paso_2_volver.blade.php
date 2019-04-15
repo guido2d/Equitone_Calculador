@@ -250,7 +250,7 @@
 
 <script>
     var cantFachadas = @if(is_array($fachadas_rectangulares)) {{ sizeof($fachadas_rectangulares) }} @endif;
-    var cantFachadasTriangulares = {{ sizeof($fachadas_triangulares) }};
+    var cantFachadasTriangulares = @if(is_array($fachadas_triangulares)) {{ sizeof($fachadas_triangulares) }} @endif;
     var mt2aRevestir = {{ number_format($mt2, 2, '.', '') }};
     var perfilBase = {{ number_format($perfilBase, 2, '.', '') }};
 
