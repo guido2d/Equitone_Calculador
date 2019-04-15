@@ -38,7 +38,8 @@
                         <th>Ancho</th>
                         <th></th>
                     </tr>
-                    @if(sizeof($fachadas_rectangulares) > 0) @foreach($fachadas_rectangulares as $fc)
+                    @if(is_array($fachadas_rectangulares) and sizeof($fachadas_rectangulares) > 0) 
+                    @foreach($fachadas_rectangulares as $fc)
                     <tr>
                         <td class="first-line"><img src="{{ asset('img/icons/rectangular.svg') }}"> {{ $fc->nombre }}</td>
                         <td class="oline"><input type="number" class="input_text alto" placeholder="0.00" value="{{ $fc->alto }}"> mts</td>
@@ -62,7 +63,8 @@
             <hr class="dotted">
             <div class="m-wrap">
                 <table id="tableTriangular" class="table-calculator">
-                    @if(sizeof($fachadas_triangulares) > 0) @foreach($fachadas_triangulares as $ft)
+                    @if(is_array($fachadas_triangulares) and sizeof($fachadas_triangulares) > 0) 
+                    @foreach($fachadas_triangulares as $ft)
                     <tr>
                         <td class="first-line"><img src="{{ asset('img/icons/triangular.svg') }}" alt=""> {{ $ft->nombre }}</td>
                         <td class="oline"><input type="number" class="input_text alto" placeholder="0.00" value="{{ $ft->alto }}"> mts</td>
@@ -110,7 +112,7 @@
                             <th>Ancho</th>
                             <th></th>
                         </tr>
-                        @if(sizeof($puertas) > 0) 
+                        @if(is_array($puertas) and sizeof($puertas) > 0) 
                         @foreach($puertas as $p)
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/puertas.svg') }}" alt=""> {{ $p->nombre }}</td>
@@ -136,7 +138,7 @@
                 <hr class="dotted">
                 <div class="m-wrap">
                     <table id="tableVentanas" class="table-calculator">
-                        @if(sizeof($ventanas) > 0) 
+                        @if(is_array($ventanas) and sizeof($ventanas) > 0) 
                         @foreach($ventanas as $v)
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/ventanas.svg') }}" alt=""> {{ $v->nombre }}</td>
@@ -187,7 +189,7 @@
                                     <th></th>
                                     <th>Cantidad</th>
                                 </tr>
-                                @if(sizeof($perfiles) > 0)
+                                @if(is_array($perfiles) and sizeof($perfiles) > 0)
                                 <tr>
                                     <td>Externas</td>
                                     <td class="oline"><input type="number" class="input_text" id="cantExternas" value="{{ $perfiles[0]->cantExternas }}"></td>
