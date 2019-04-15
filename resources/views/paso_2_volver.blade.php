@@ -249,8 +249,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
 <script>
-    var cantFachadas = {{ sizeof($fachadas_rectangulares) }};
-    var cantFachadasTriangulares = {{ sizeof($fachadas_triangulares) }};
+    var cantFachadas = @if(is_array($fachadas_rectangulares)) {{ sizeof($fachadas_rectangulares) }} @endif;
+    /*var cantFachadasTriangulares = {{ sizeof($fachadas_triangulares) }};*/
     var mt2aRevestir = {{ number_format($mt2, 2, '.', '') }};
     var perfilBase = {{ number_format($perfilBase, 2, '.', '') }};
 
