@@ -11,14 +11,14 @@
                     <span class="c-note u-hidden-until@desktop">Find a</span>
                     <a class="c-btn c-btn--tertiary u-hidden-until@tablet" href="/en-gb/sidings/dealer-locator/" data-webid="cta-btn-link">
                             <span class="c-btn__label">Dealer or Installer</span>
-                            <img src="img/location--orange.svg" class="c-btn__icon">
+                            <img src="{{ asset('img/location--orange.svg') }}" class="c-btn__icon">
                         </a>
                 </div>
                 <div>
                     <span class="c-note u-hidden-until@desktop">Request</span>
                     <a class="c-btn c-btn--primary u-hidden-until@tablet" href="/en-gb/sidings/sample-request/" data-webid="cta-btn-link">
                             <span class="c-btn__label">Samples</span>
-                            <img src="img/samples.svg" class="c-btn__icon">    
+                            <img src="{{ asset('img/samples.svg') }}" class="c-btn__icon">    
                         </a>
                 </div>
             </div>

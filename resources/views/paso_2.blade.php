@@ -17,13 +17,12 @@
             <div class="total-row">
                 <p>TOTAL</p>
                 <div class="divider-dotted"></div>
-                <p class="total-mt">
-                    <let id="totalMts">100.456</let> mts</p>
+                <p class="total-mt"><let class="totalMts">0.00</let> mts<sup>2</sup> </p>
             </div>
         </div>
         <hr>
         <!--FACHADAS-->
-        <div class="row">
+        <div class="row fachadas">
             <div class="m-wrap">
                 <div class="col-md-12 p0 mt20">
                     <img src="img/fachada_revestir.png" alt="" style="position: absolute;top: 1px;">
@@ -39,9 +38,9 @@
                         <th></th>
                     </tr>
                     <tr>
-                        <td class="first-line"><img src="img/rectangulo.png" alt=""> Fachada principal</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
+                        <td class="first-line"><img src="img/icons/rectangular.svg"> Fachada principal</td>
+                        <td class="oline"><input type="number" class="input_text alto" placeholder="0.00"> mts</td>
+                        <td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>
                         <td class="plus plus-fachada tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada a revestir.</span></td>
                     </tr>
                 </table>
@@ -50,9 +49,9 @@
             <div class="m-wrap">
                 <table id="tableTriangular" class="table-calculator">
                     <tr>
-                        <td class="first-line"><img src="img/triangulo.png" alt=""> Fachada - triangular</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
+                        <td class="first-line"><img src="img/icons/triangular.svg" alt=""> Fachada - triangular</td>
+                        <td class="oline"><input type="number" class="input_text alto" placeholder="0.00"> mts</td>
+                        <td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>
                         <td class="plus plus-triangular tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada triangular.</span></td>
                     </tr>
                 </table>
@@ -85,9 +84,9 @@
                             <th></th>
                         </tr>
                         <tr>
-                            <td class="first-line"><img src="img/rectangulo.png" alt=""> Puerta</td>
-                            <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                            <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
+                            <td class="first-line"><img src="img/icons/puertas.svg" alt=""> Puerta</td>
+                            <td class="oline"><input type="number" class="input_text alto puerta" placeholder="0.00"> mts</td>
+                            <td class="oline"><input type="number" class="input_text ancho puerta" placeholder="0.00"> mts</td>
                             <td class="plus plus-puertas tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra puerta.</span></td>
                         </tr>
                     </table>
@@ -96,9 +95,9 @@
                 <div class="m-wrap">
                     <table id="tableVentanas" class="table-calculator">
                         <tr>
-                            <td class="first-line"><img src="img/ventana.png" alt=""> Ventana</td>
-                            <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                            <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
+                            <td class="first-line"><img src="img/icons/ventanas.svg" alt=""> Ventana</td>
+                            <td class="oline"><input type="number" class="input_text alto ventana" placeholder="0.00"> mts</td>
+                            <td class="oline"><input type="number" class="input_text ancho ventana" placeholder="0.00"> mts</td>
                             <td class="plus plus-ventana tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra ventana.</span></td>
                         </tr>
                     </table>
@@ -133,31 +132,30 @@
                                 </tr>
                                 <tr>
                                     <td>Externas</td>
-                                    <td class="oline"><input type="number" class="input_text" value="0"></td>
+                                    <td class="oline"><input type="number" class="input_text" id="cantExternas" value="0"></td>
                                 </tr>
                                 <tr>
                                     <td>Internas</td>
-                                    <td class="oline"><input type="number" class="input_text" value="0"></td>
+                                    <td class="oline"><input type="number" class="input_text" id="cantInternas" value="0"></td>
                                 </tr>
                                 <tr>
                                     <td>Cierre lateral</td>
-                                    <td class="oline"><input type="number" class="input_text" value="0"></td>
+                                    <td class="oline"><input type="number" class="input_text" id="cantCierreLateral" value="0"></td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                 </div>
             </section>
-
         </div>
-        
+
         <hr style="margin-bottom: 0px;margin-top:30px;">
         <div class="m-wrap">
             <div class="total-row">
                 <p>TOTAL</p>
                 <div class="divider-dotted"></div>
                 <p class="total-mt">
-                    <let id="totalMts">100.456</let> mts</p>
+                    <let class="totalMts">0.00</let> mts<sup>2</sup></p>
             </div>
         </div>
         <hr>
@@ -165,109 +163,16 @@
         <div class="row">
             <div class="col-md-12 text-center mt62 p0">
                 <a href="{{ asset('/') }}" class="big-gray-btn">Volver</a>
-                <a href="{{ asset('/paso3') }}" class="big-orange-btn">Calcular</a>
+                <a href="{{ asset('/paso3') }}" id="btnCalcular" class="big-orange-btn">Calcular</a>
             </div>
         </div>
     </div>
 </section>
 
-@endsection @section('js')
+@endsection 
+@section('js')
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-
-<script>
-    var cantFachadas = 1;
-    var cantFachadasTriangulares = 1;
-
-    $('#btnPVSi').on('click', function(e) {
-        e.preventDefault();
-        $("#puertasyventanas").slideDown();
-    });
-
-    $('#btnPVNo').on('click', function(e) {
-        e.preventDefault();
-        $("#puertasyventanas").slideUp();
-    });
-
-    $('#btnPerfilesSi').on('click', function(e) {
-        e.preventDefault();
-        $("#perfiles").slideDown();
-    });
-
-    $('#btnPerfilesNo').on('click', function(e) {
-        e.preventDefault();
-        $("#perfiles").slideUp();
-    });
-
-    $('.plus-fachada').on('click', function(e) {
-        if (cantFachadas <= 3) {
-            var trPuertas = '<tr>';
-            trPuertas += '<td class="first-line"><img src="img/rectangulo.png" alt=""> Fachada nro. '+ (cantFachadas + 1) +'</td>';
-            trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
-            trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
-            trPuertas += "<td class='less' onclick='quitarElement(this,\"rectangular\")'>-</td>";
-            trPuertas += '</tr>';
-            $('#tableFachada').append(trPuertas);
-            cantFachadas += 1;
-        } else {
-            Swal.fire({
-                text: 'Puede seleccionar un máximo de 4 fachadas rectangulares.',
-                type: 'info',
-                confirmButtonText: 'Ok'
-            })
-        }
-    });
-
-    $('.plus-triangular').on('click', function(e) {
-        if (cantFachadasTriangulares <= 1) {
-            var trPuertas = '<tr>';
-            trPuertas += '<td class="first-line"><img src="img/triangulo.png" alt=""> Fachada - triangular</td>';
-            trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
-            trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
-            trPuertas += "<td class='less' onclick='quitarElement(this,\"triangular\")'>-</td>";;
-            trPuertas += '</tr>';
-            $('#tableTriangular').append(trPuertas);
-            cantFachadasTriangulares += 1;
-        } else {
-            Swal.fire({
-                text: 'Puede seleccionar un máximo de 2 fachadas triangulares.',
-                type: 'info',
-                confirmButtonText: 'Ok'
-            })
-        }
-    });
-
-    $('.plus-puertas').on('click', function(e) {
-        var trPuertas = '<tr>';
-        trPuertas += '<td class="first-line"><img src="img/rectangulo.png" alt=""> Puerta</td>';
-        trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
-        trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
-        trPuertas += '<td class="less" onclick="quitarElement(this)">-</td>';
-        trPuertas += '</tr>';
-        $('#tablePuertas').append(trPuertas);
-    });
-
-    $('.plus-ventana').on('click', function(e) {
-        var trPuertas = '<tr>';
-        trPuertas += '<td class="first-line"><img src="img/ventana.png" alt=""> Ventana</td>';
-        trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
-        trPuertas += '<td class="oline"><input type="text" class="input_text" value="0"> mts</td>';
-        trPuertas += '<td class="less" onclick="quitarElement(this)">-</td>';
-        trPuertas += '</tr>';
-        $('#tableVentanas').append(trPuertas);
-    });
-
-    function quitarElement(obj, tipo) {
-        obj.closest('tr').remove();
-        if (tipo == 'rectangular') {
-            cantFachadas -= 1;
-        }
-        if (tipo == 'triangular') {
-            cantFachadasTriangulares -= 1;
-        }
-    }
-
-</script>
-
+<script src="{{ asset('js/calculador.js') }}"></script>
 @endsection

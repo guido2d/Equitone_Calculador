@@ -20,7 +20,7 @@
                         <div class="flex-container">
                             <span class="title">Rebestimiento <br>sobre albañilería
                                 <br>
-                                <a href="{{ asset('/paso2?tipo=rebestimiento') }}" class="orange-link">Calcular ></a>
+                                <a href="{{ asset('/siguiente?tipo=rebestimiento') }}" class="orange-link">Calcular ></a>
                                 </span>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         <div class="flex-container">
                             <span class="title">Cerramiento <br>sobre construcción liviana
                                 <br>
-                                <a href="{{ asset('/paso2?tipo=cerramiento') }}" class="orange-link">Calcular ></a>
+                                <a href="{{ asset('/siguiente?tipo=cerramiento') }}" class="orange-link">Calcular ></a>
                                 </span>
                         </div>
                     </div>

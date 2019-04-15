@@ -7,7 +7,7 @@
         <div class="row">
             <div class="m-wrap">
                 <div class="col-md-12 p0 mt20">
-                    <img src="img/fachada_revestir.png" alt="" style="position: absolute;top: 1px;">
+                    <img src="{{ asset('img/fachada_revestir.png') }}" alt="" style="position: absolute;top: 1px;">
                     <h4 class="table_title">Resultados</h4>
                 </div>
                 <table id="tableFachada" class="table-calculator">
@@ -16,43 +16,54 @@
                         <th>Alto</th>
                         <th>Ancho</th>
                     </tr>
-                    <tr>
-                        <td class="first-line">Fachada principal</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                    </tr>
-                    <tr>
-                        <td class="first-line">Fachada nro. 2</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                    </tr>
-                    <tr>
-                        <td class="first-line">Fachada - triangular</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                    </tr>
+                    @if(sizeof($fachadas_rectangulares) > 0)
+                        @foreach($fachadas_rectangulares as $fc)
+                        <tr>
+                            <td class="first-line">{{ $fc->nombre }}</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ $fc->alto }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ $fc->ancho }}"> mts</td>
+                        </tr>
+                        @endforeach
+                    @endif
+                    
+                    @if(sizeof($fachadas_triangulares) > 0)
+                        @foreach($fachadas_triangulares as $ft)
+                        <tr>
+                            <td class="first-line">{{ $ft->nombre }}</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ $ft->alto }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ $ft->ancho }}"> mts</td>
+                        </tr>
+                        @endforeach
+                    @endif
+                    
                 </table>
             </div>
+            @if(sizeof($puertas) > 0 || sizeof($ventanas) > 0)
             <hr class="dotted">
             <div class="m-wrap">
                 <table id="tableTriangular" class="table-calculator">
-                    <tr>
-                        <td class="first-line">Puerta</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                    </tr>
-                    <tr>
-                        <td class="first-line">Puerta</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                    </tr>
-                    <tr>
-                        <td class="first-line">Ventana</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                        <td class="oline"><input type="text" class="input_text" value="0"> mts</td>
-                    </tr>
+                    @if(sizeof($puertas) > 0)
+                        @foreach($puertas as $p)    
+                        <tr>
+                            <td class="first-line">{{ $p->nombre }}</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ $p->alto }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ $p->ancho }}"> mts</td>
+                        </tr>
+                        @endforeach
+                    @endif
+                    @if(sizeof($ventanas) > 0)
+                        @foreach($ventanas as $v)
+                        <tr>
+                            <td class="first-line">{{ $v->nombre }}</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ $v->alto }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ $v->ancho }}"> mts</td>
+                        </tr>
+                        @endforeach
+                    @endif
                 </table>
             </div>
+            @endif
+            @if(sizeof($perfiles) > 0)
             <hr class="dotted">
             <div class="m-wrap">
                 <table class="table-esquinas">
@@ -62,18 +73,19 @@
                     </tr>
                     <tr>
                         <td>Externas</td>
-                        <td class="oline"><input type="number" class="input_text" value="0"></td>
+                        <td class="oline"><input type="number" class="input_text" value="{{ $perfiles[0]->cantExternas }}"></td>
                     </tr>
                     <tr>
                         <td>Internas</td>
-                        <td class="oline"><input type="number" class="input_text" value="0"></td>
+                        <td class="oline"><input type="number" class="input_text" value="{{ $perfiles[0]->cantInternas }}"></td>
                     </tr>
                     <tr>
                         <td>Cierre lateral</td>
-                        <td class="oline"><input type="number" class="input_text" value="0"></td>
+                        <td class="oline"><input type="number" class="input_text" value="{{ $perfiles[0]->cantCierreLateral }}"></td>
                     </tr>
                 </table>
             </div>
+            @endif
         </div>
 
         <hr style="margin-bottom: 0px;margin-top:30px;">
@@ -82,14 +94,14 @@
                 <p>TOTAL</p>
                 <div class="divider-dotted"></div>
                 <p class="total-mt">
-                    <let id="totalMts">100.456</let> mts</p>
+                    <let id="totalMts">{{ number_format($mt2, 2, '.', '') }}</let> mts</p>
             </div>
         </div>
         <hr>
 
         <div class="row">
             <div class="col-md-12 text-center mt62 p0">
-                <a href="{{ asset('/paso2?tipo=rebestimiento') }}" class="big-gray-btn">Volver al <br> paso anterior</a>
+                <a href="{{ asset('/paso2/') }}/{{ $codigo }}" class="big-gray-btn">Volver al <br> paso anterior</a>
                 <a href="{{ asset('/') }}" class="big-gray-btn">Descargue el resultado</a>
                 <a href="#" class="big-orange-btn">Necesita un <br>instalador?</a>
             </div>
