@@ -32,7 +32,7 @@ $(document).ready(function () {
     $('.plus-fachada').on('click', function (e) {
         if (cantFachadas <= 3) {
             var trPuertas = '<tr>';
-            trPuertas += '<td class="first-line"><img src="{{ asset("img/icons/rectangular.svg") }}" alt=""> Fachada nro. ' + (cantFachadas + 1) + '</td>';
+            trPuertas += '<td class="first-line"><img src="img/icons/rectangular.svg" alt=""> Fachada nro. ' + (cantFachadas + 1) + '</td>';
             trPuertas += '<td class="oline"><input type="number" class="input_text alto test123" placeholder="0.00"> mts</td>';
             trPuertas += '<td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>';
             trPuertas += "<td class='less' onclick='quitarElement(this,\"rectangular\")'>-</td>";
@@ -51,7 +51,7 @@ $(document).ready(function () {
     $('.plus-triangular').on('click', function (e) {
         if (cantFachadasTriangulares <= 1) {
             var trPuertas = '<tr>';
-            trPuertas += '<td class="first-line"><img src="/img/icons/triangular.svg" alt=""> Fachada - triangular</td>';
+            trPuertas += '<td class="first-line"><img src="img/icons/triangular.svg" alt=""> Fachada - triangular</td>';
             trPuertas += '<td class="oline"><input type="number" class="input_text alto" placeholder="0.00"> mts</td>';
             trPuertas += '<td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>';
             trPuertas += "<td class='less' onclick='quitarElement(this,\"triangular\")'>-</td>";;
