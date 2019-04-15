@@ -250,7 +250,7 @@
 
 <script>
     var cantFachadas = @if(is_array($fachadas_rectangulares)) {{ sizeof($fachadas_rectangulares) }} @endif;
-    /*var cantFachadasTriangulares = {{ sizeof($fachadas_triangulares) }};*/
+    var cantFachadasTriangulares = {{ sizeof($fachadas_triangulares) }};
     var mt2aRevestir = {{ number_format($mt2, 2, '.', '') }};
     var perfilBase = {{ number_format($perfilBase, 2, '.', '') }};
 
@@ -479,7 +479,7 @@
 
         });
         
-        var puertas = "{{ sizeof($puertas) }}";
+        var puertas = @if(is_array($puertas)) "{{ sizeof($puertas) }}" @endif;
         var ventanas = "{{ sizeof($ventanas) }}";
         var perfiles = "{{ sizeof($perfiles) }}";
         
