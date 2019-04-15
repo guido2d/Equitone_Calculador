@@ -110,14 +110,20 @@
                             <th>Ancho</th>
                             <th></th>
                         </tr>
-                        @if(sizeof($puertas) > 0) @foreach($puertas as $p)
+                        @if(sizeof($puertas) > 0) 
+                        @foreach($puertas as $p)
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/puertas.svg') }}" alt=""> {{ $p->nombre }}</td>
                             <td class="oline"><input type="text" class="input_text alto puerta" placeholder="0.00" value="{{ $p->alto }}"> mts</td>
                             <td class="oline"><input type="text" class="input_text ancho puerta" placeholder="0.00" value="{{ $p->ancho }}"> mts</td>
-                            <td class="plus plus-puertas tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra puerta.</span></td>
+                            @if($loop->first)
+                                <td class="plus plus-puertas tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra puerta.</span></td>
+                            @else
+                                <td class="less" onclick="quitarElement(this)">-</td>
+                            @endif    
                         </tr>
-                        @endforeach @else
+                        @endforeach 
+                        @else
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/puertas.svg') }}" alt=""> Puerta</td>
                             <td class="oline"><input type="number" class="input_text alto puerta" placeholder="0.00"> mts</td>
@@ -130,14 +136,20 @@
                 <hr class="dotted">
                 <div class="m-wrap">
                     <table id="tableVentanas" class="table-calculator">
-                        @if(sizeof($ventanas) > 0) @foreach($ventanas as $v)
+                        @if(sizeof($ventanas) > 0) 
+                        @foreach($ventanas as $v)
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/ventanas.svg') }}" alt=""> {{ $v->nombre }}</td>
                             <td class="oline"><input type="text" class="input_text alto ventana" placeholder="0.00" value="{{ $v->alto }}"> mts</td>
                             <td class="oline"><input type="text" class="input_text ancho ventana" placeholder="0.00" value="{{ $v->ancho }}"> mts</td>
-                            <td class="plus plus-ventana tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra ventana.</span></td>
+                            @if($loop->first)
+                                <td class="plus plus-ventana tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra ventana.</span></td>
+                            @else
+                                <td class="less" onclick="quitarElement(this)">-</td>
+                            @endif
                         </tr>
-                        @endforeach @else
+                        @endforeach 
+                        @else
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/ventanas.svg') }}" alt=""> Ventana</td>
                             <td class="oline"><input type="number" class="input_text alto ventana" placeholder="0.00"> mts</td>

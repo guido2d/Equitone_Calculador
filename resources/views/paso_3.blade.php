@@ -16,7 +16,7 @@
                         <th>Alto</th>
                         <th>Ancho</th>
                     </tr>
-                    @if(sizeof($fachadas_rectangulares) > 0)
+                    @if(is_array($fachadas_rectangulares) and sizeof($fachadas_rectangulares) > 0)
                         @foreach($fachadas_rectangulares as $fc)
                         <tr>
                             <td class="first-line">{{ $fc->nombre }}</td>
@@ -26,7 +26,7 @@
                         @endforeach
                     @endif
                     
-                    @if(sizeof($fachadas_triangulares) > 0)
+                    @if(is_array($fachadas_triangulares) and sizeof($fachadas_triangulares) > 0)
                         @foreach($fachadas_triangulares as $ft)
                         <tr>
                             <td class="first-line">{{ $ft->nombre }}</td>
@@ -38,11 +38,11 @@
                     
                 </table>
             </div>
-            @if(sizeof($puertas) > 0 || sizeof($ventanas) > 0)
+            @if(is_array($puertas) and sizeof($puertas) > 0 || is_array($ventanas) and sizeof($ventanas) > 0)
             <hr class="dotted">
             <div class="m-wrap">
                 <table id="tableTriangular" class="table-calculator">
-                    @if(sizeof($puertas) > 0)
+                    @if(is_array($puertas) and sizeof($puertas) > 0)
                         @foreach($puertas as $p)    
                         <tr>
                             <td class="first-line">{{ $p->nombre }}</td>
@@ -51,7 +51,7 @@
                         </tr>
                         @endforeach
                     @endif
-                    @if(sizeof($ventanas) > 0)
+                    @if(is_array($ventanas) and sizeof($ventanas) > 0)
                         @foreach($ventanas as $v)
                         <tr>
                             <td class="first-line">{{ $v->nombre }}</td>
@@ -63,7 +63,7 @@
                 </table>
             </div>
             @endif
-            @if(sizeof($perfiles) > 0)
+            @if(is_array($perfiles) and sizeof($perfiles) > 0)
             <hr class="dotted">
             <div class="m-wrap">
                 <table class="table-esquinas">
