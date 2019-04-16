@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Cotizacion;
+use PDF;
 
 class CalculadorController extends Controller{
     
@@ -33,7 +34,20 @@ class CalculadorController extends Controller{
         $mt2 = $cotizaciones->mt2aRevestir;
         $titulo = $cotizaciones->titulo;
         $perfilBase = $cotizaciones->perfilBase;
-        return view('paso_2_volver', compact('fachadas_rectangulares', 'fachadas_triangulares', 'puertas', 'ventanas', 'perfiles', 'mt2', 'codigo', 'titulo', 'perfilBase'));
+        $perfilJ = $cotizaciones->perfilJ;
+        $perfilL = $cotizaciones->perfilL;
+        $perfilCortagotera = $cotizaciones->perfilCortagotera;
+        return view('paso_2_volver', compact('fachadas_rectangulares', 
+                                             'fachadas_triangulares', 
+                                             'puertas', 'ventanas', 
+                                             'perfiles', 
+                                             'mt2', 
+                                             'codigo', 
+                                             'titulo', 
+                                             'perfilBase',
+                                             'perfilJ',
+                                             'perfilL',
+                                             'perfilCortagotera'));
     }
     
     public function guardarCalculo(Request $request){
@@ -48,6 +62,9 @@ class CalculadorController extends Controller{
             $cotizacion->perfiles = json_encode($request->get('perfiles'));
             $cotizacion->mt2aRevestir = $request->get('mt2aRevestir');
             $cotizacion->perfilBase = $request->get('perfilBase');
+            $cotizacion->perfilL = $request->get('perfilL');
+            $cotizacion->perfilJ = $request->get('perfilJ');
+            $cotizacion->perfilCortagotera = $request->get('perfilCortagotera');
             $cotizacion->save();
         }else{
             $codigo = "CL".date("d").date("m").date("y").date("H").date("i").date("s");
@@ -61,6 +78,9 @@ class CalculadorController extends Controller{
             $cotizacion->perfiles = json_encode($request->get('perfiles'));
             $cotizacion->mt2aRevestir = $request->get('mt2aRevestir');
             $cotizacion->perfilBase = $request->get('perfilBase');
+            $cotizacion->perfilL = $request->get('perfilL');
+            $cotizacion->perfilJ = $request->get('perfilJ');
+            $cotizacion->perfilCortagotera = $request->get('perfilCortagotera');
             $cotizacion->save();
         }
         return $codigo;
@@ -78,6 +98,49 @@ class CalculadorController extends Controller{
         $mt2 = $cotizaciones->mt2aRevestir;
         
         return view('paso_3', compact('fachadas_rectangulares', 'fachadas_triangulares', 'puertas', 'ventanas', 'perfiles', 'mt2', 'codigo'));
+    }
+    
+    public function descargarPDF($codigo){
+        
+        $cotizaciones = Cotizacion::where('codigo', $codigo)->first();
+        $fachadas_rectangulares = json_decode($cotizaciones->fachadas_rectangulares);
+        $fachadas_triangulares = json_decode($cotizaciones->fachadas_triangulares);
+        $puertas = json_decode($cotizaciones->puertas);
+        $ventanas = json_decode($cotizaciones->ventanas);
+        $perfiles = json_decode($cotizaciones->perfiles);
+        $mt2 = $cotizaciones->mt2aRevestir;
+        $titulo = $cotizaciones->titulo;
+        $perfilBase = $cotizaciones->perfilBase;
+        $perfilJ = $cotizaciones->perfilJ;
+        $perfilL = $cotizaciones->perfilL;
+        $perfilCortagotera = $cotizaciones->perfilCortagotera;
+        
+        /*return view('pdf.resultado', compact('fachadas_rectangulares', 
+                                             'fachadas_triangulares', 
+                                             'puertas', 'ventanas', 
+                                             'perfiles', 
+                                             'mt2', 
+                                             'codigo', 
+                                             'titulo', 
+                                             'perfilBase',
+                                             'perfilJ',
+                                             'perfilL',
+                                             'perfilCortagotera'));*/
+        
+        $pdf = PDF::loadView('pdf.resultado', compact('fachadas_rectangulares', 
+                                             'fachadas_triangulares', 
+                                             'puertas', 'ventanas', 
+                                             'perfiles', 
+                                             'mt2', 
+                                             'codigo', 
+                                             'titulo', 
+                                             'perfilBase',
+                                             'perfilJ',
+                                             'perfilL',
+                                             'perfilCortagotera'));
+        
+        return $pdf->download('invoice.pdf');
+        
     }
     
     

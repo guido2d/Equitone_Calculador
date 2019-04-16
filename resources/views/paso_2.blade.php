@@ -125,7 +125,7 @@
                             <img src="img/esquinas.png" alt="">
                         </div>
                         <div class="col-md-8">
-                            <table class="table-esquinas">
+                            <table id="tableEsquinas" class="table-esquinas">
                                 <tr>
                                     <th></th>
                                     <th>Cantidad</th>
