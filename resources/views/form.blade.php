@@ -15,28 +15,28 @@
                     
                     <div class="row">
                         <div class="row col-md-6">
-                            <input type="text" placeholder="Nombre*" name="nombre">
+                            <input type="text" placeholder="Nombre*" name="nombre" required>
                         </div>
                         <div class="row col-md-6">
-                            <input type="text" placeholder="Email*" name="email">
+                            <input type="text" placeholder="Email*" name="email" required>
                         </div>
                     </div>
                     
                     <div class="row" style="margin-top:20px;">
                         <div class="row col-md-6">
-                            <input type="text" placeholder="Teléfono*" name="phone">
+                            <input type="text" placeholder="Teléfono*" name="phone" required>
                         </div>
                         <div class="row col-md-6">
-                            <input type="text" placeholder="Comuna*" name="comuna">
+                            <input type="text" placeholder="Comuna*" name="comuna" required>
                         </div>
                     </div>
                     
                     <div class="row" style="margin-top:20px;">
                         <div class="row col-md-12">
                             @if($pdf == 'no')
-                                <input type="text" class="w90" placeholder="Cantidad de metros a revestir*">
+                                <input type="text" class="w90" placeholder="Cantidad de metros a revestir*" required>
                             @else
-                                <select name="tiempo_construccion" class="w90">
+                                <select name="tiempo_construccion" class="w90" required>
                                     <option value="" selected>Considera realizar la construcción/refacción durante</option>
                                     <option value="1">3 meses</option>
                                     <option value="2">6 meses</option>
@@ -50,9 +50,9 @@
                         <div class="col-md-12 text-center mt62 p0">
                             <a href="{{ asset('/resultados') }}/{{ $codigo }}" class="big-gray-btn">Volver</a>
                             @if($pdf == 'no')
-                                <a href="#" id="btnCalcular" class="big-orange-btn">Enviar</a>
+                                <a href="#" id="btnCalcular" type="submit" class="big-orange-btn">Enviar</a>
                             @else
-                                <a href="{{ asset('/descargar-pdf') }}/{{ $codigo }}" id="btnCalcular" class="big-orange-btn">Descargar</a>
+                                <a href="{{ asset('/descargar-pdf') }}/{{ $codigo }}" type="submit" id="btnCalcular" class="big-orange-btn">Descargar</a>
                             @endif
                         </div>
                     </div>
