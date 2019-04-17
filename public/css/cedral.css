@@ -94,7 +94,7 @@ button {
     -webkit-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    max-width: 150px;
+    max-width: 200px;
 }
 
 a {

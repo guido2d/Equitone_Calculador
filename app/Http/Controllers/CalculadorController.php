@@ -627,5 +627,11 @@ class CalculadorController extends Controller{
         
     }
     
+    public function completarFormulario($codigo){
+        return view('form', ['codigo' => $codigo, 'pdf' => 'no']);
+    }
     
+    public function completarFormularioPDF($codigo){
+        return view('form', ['codigo' => $codigo, 'pdf' => 'si']);
+    }
 }

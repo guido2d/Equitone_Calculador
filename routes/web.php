@@ -8,6 +8,8 @@ Route::post('/guardarCalculo', 'CalculadorController@guardarCalculo');
 Route::get('/resultados/{codigo}', 'CalculadorController@paso3');
 Route::get('/descargar-pdf/{codigo}', 'CalculadorController@descargarPDF');
 Route::get('/ver-pdf/{codigo}', 'CalculadorController@verPDF');
+Route::get('/completar-formulario/{codigo}', 'CalculadorController@completarFormulario');
+Route::get('/completar-formulario-pdf/{codigo}', 'CalculadorController@completarFormularioPDF');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

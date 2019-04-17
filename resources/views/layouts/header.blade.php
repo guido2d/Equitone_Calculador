@@ -1,6 +1,23 @@
 <header class="c-header js-header-height" data-component-class="header" data-component-parm="null" data-webid="header">
     <div class="o-wrapper c-header__top">
         <div>
+            <a class="c-header__logo" href="/">
+                    <img src="{{ asset('img/logo_cedral_pdf.png') }}">
+            </a>
+        </div>
+        <div class="c-header__secondary-nav">
+            
+            <nav class="c-languages u-margin-left-tiny u-padding-vertical-tiny" id="language-dropdown" data-webid="hdr-lang">
+                @yield('volver')
+            </nav>
+        </div>
+
+    </div>
+</header>
+<!--
+<header class="c-header js-header-height" data-component-class="header" data-component-parm="null" data-webid="header">
+    <div class="o-wrapper c-header__top">
+        <div>
             <a class="c-header__logo" href="/en-gb/sidings/">
                     <img src="{{ asset('img/logo_cedral.jpg?width=150') }}">
                 </a>
@@ -81,3 +98,4 @@
         </div>
     </div>
 </header>
+-->

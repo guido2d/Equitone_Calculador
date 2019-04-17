@@ -1,4 +1,8 @@
-@extends('layouts.main') @section('contenido')
+@extends('layouts.main') 
+@section('volver')
+<a href="{{ asset('/paso2/') }}/{{ $codigo }}" class="btn-header"><img src="{{ asset('img/icons/arrow.png') }}" alt="" width="32"> Volver</a>
+@endsection
+@section('contenido')
 
 <section class="pasos" id="paso2">
     <div class="container">
@@ -102,8 +106,8 @@
         <div class="row">
             <div class="col-md-12 text-center mt62 p0">
                 <a href="{{ asset('/paso2/') }}/{{ $codigo }}" class="big-gray-btn">Volver al <br> paso anterior</a>
-                <a href="{{ asset('/descargar-pdf') }}/{{ $codigo }}" class="big-gray-btn">Descargue el resultado</a>
-                <a href="#" class="big-orange-btn">¿Necesita un <br>instalador?</a>
+                <a href="{{ asset('/completar-formulario-pdf') }}/{{ $codigo }}" class="big-gray-btn">Descargue el resultado</a>
+                <a href="{{ asset('/completar-formulario') }}/{{ $codigo }}" class="big-orange-btn">¿Necesita un <br>instalador?</a>
             </div>
         </div>
     </div>
