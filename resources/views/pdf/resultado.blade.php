@@ -193,57 +193,57 @@
         @endif
     </div>
     <div class="page-break"></div>
-    <div class="lineas" style="margin-top:20px;">
-        <table>
+    <div class="lineas">
+        <table style="width:100%;">
             <tr class="grey">
-                <td>Espesor Siding</td>
+                <td style="font-size: 12px;">Espesor Siding</td>
                 <td></td>
-                <td style="float:right;">6 mm</td>
-                <td style="float:right;">8 mm</td>
+                <td style="float:right;font-size: 12px;">6 mm</td>
+                <td style="float:right;font-size: 12px;">8 mm</td>
             </tr>
             <tr class="grey">
-                <td>Distancia entre estructura</td>
+                <td style="font-size: 12px;">Distancia entre estructura</td>
                 <td></td>
-                <td>400 mm</td>
-                <td>600 mm</td>
+                <td style="float:right;font-size: 12px;">400 mm</td>
+                <td style="float:right;font-size: 12px;">600 mm</td>
             </tr>
         </table>
     </div>
 
-    <table class="table-esquinas" style="margin-top:20px;">
+    <table class="table-esquinas" style="border-spacing: 10px 10px;">
         <tr>
             <th></th>
-            <th style="text-align:center;">Materiales</th>
-            <th style="text-align:center;">Unid. de medida</th>
-            <th style="text-align:center;">Cantidad</th>
-            <th style="text-align:center;">Cantidad</th>
+            <th style="text-align:center;font-size: 12px;">Materiales</th>
+            <th style="text-align:center;font-size: 12px;">Unid. de medida</th>
+            <th style="text-align:center;font-size: 12px;">Cantidad</th>
+            <th style="text-align:center;font-size: 12px;">Cantidad</th>
         </tr>
         @foreach($materiales1 as $m)
         <tr>
-            <td style="width:1%;">{{ $m['posicion'] }}</td>
-            <td>{{ $m['material'] }}</td>
-            <td style="width:15%;text-align:center;">{{ $m['unidad'] }}</td>
-            <td style="width:15%;text-align:center;">{{ $m['cant1'] }}</td>
-            <td style="width:15%;text-align:center;">{{ $m['cant2'] }}</td>
+            <td style="width:1%;font-size: 12px;">{{ $m['posicion'] }}</td>
+            <td style="font-size: 12px;">{{ $m['material'] }}</td>
+            <td style="width:15%;text-align:center;font-size: 12px;">{{ $m['unidad'] }}</td>
+            <td style="width:15%;text-align:center;font-size: 12px;">{{ $m['cant1'] }}</td>
+            <td style="width:15%;text-align:center;font-size: 12px;">{{ $m['cant2'] }}</td>
         </tr>
         @endforeach
     </table>
     
-    <table class="table-esquinas" style="margin-top:30px;">
+    <table class="table-esquinas" style="widht:100%;border-spacing: 10px 10px;">
         <tr>
             <th></th>
-            <th style="text-align:center;">Materiales</th>
-            <th style="text-align:center;">Unid. de medida</th>
-            <th style="text-align:center;">Cantidad</th>
-            <th style="text-align:center;">Cantidad</th>
+            <th style="text-align:center;font-size: 12px;">Materiales</th>
+            <th style="text-align:center;font-size: 12px;">Unid. de medida</th>
+            <th style="text-align:center;font-size: 12px;">Cantidad</th>
+            <th style="text-align:center;font-size: 12px;">Cantidad</th>
         </tr>
         @foreach($materiales2 as $m)
         <tr>
-            <td style="width:1%;">{{ $m['posicion'] }}</td>
-            <td>{{ $m['material'] }}</td>
-            <td style="width:15%;text-align:center;">{{ $m['unidad'] }}</td>
-            <td style="width:15%;text-align:center;">{{ ceil($m['cant1']) }}</td>
-            <td style="width:15%;text-align:center;">{{ ceil($m['cant2']) }}</td>
+            <td style="width:1%;font-size: 12px;">{{ $m['posicion'] }}</td>
+            <td style="font-size: 12px;">{{ $m['material'] }}</td>
+            <td style="width:15%;text-align:center;font-size: 12px;">{{ $m['unidad'] }}</td>
+            <td style="width:15%;text-align:center;font-size: 12px;">{{ ceil($m['cant1']) }}</td>
+            <td style="width:15%;text-align:center;font-size: 12px;">{{ ceil($m['cant2']) }}</td>
         </tr>
         @endforeach
     </table>

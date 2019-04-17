@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 @if($titulo == 'cerramiento')
-                <h3>Calculador <span class="selection">como cerramiento sobre consutrucción liviana</span></h3>
+                <h3>Calculador <span class="selection">como cerramiento sobre construcción liviana</span></h3>
                 @else
-                <h3>Calculador <span class="selection">como rebestimiento sobre albañilería</span></h3>
+                <h3>Calculador <span class="selection">como revestimiento sobre albañilería</span></h3>
                 @endif
             </div>
         </div>

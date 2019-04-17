@@ -18,9 +18,9 @@
                     </div>
                     <div class="col-md-5 p0">
                         <div class="flex-container">
-                            <span class="title">Rebestimiento <br>sobre albañilería
+                            <span class="title">Revestimiento <br>sobre albañilería
                                 <br>
-                                <a href="{{ asset('/siguiente?tipo=rebestimiento') }}" class="orange-link">Calcular ></a>
+                                <a href="{{ asset('/siguiente?tipo=revestimiento') }}" class="orange-link">Calcular ></a>
                                 </span>
                         </div>
                     </div>
