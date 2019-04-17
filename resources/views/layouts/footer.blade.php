@@ -34,19 +34,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="c-footer__contact">
-                        <h3 data-webid="footer-addressTitle">Contact us</h3>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <p>Wellington Road <br>Burton upon Trent <br>Staffordshire</p>
-                            </div>
-                            <div class="col-md-5">
-                                <p><img src="{{ asset('img/contact-blue.svg') }}" alt="Contact-Blue.svg" width="25" height="25"> infouk@etexgroup.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
