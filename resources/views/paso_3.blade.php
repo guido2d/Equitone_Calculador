@@ -103,7 +103,7 @@
             <div class="col-md-12 text-center mt62 p0">
                 <a href="{{ asset('/paso2/') }}/{{ $codigo }}" class="big-gray-btn">Volver al <br> paso anterior</a>
                 <a href="{{ asset('/descargar-pdf') }}/{{ $codigo }}" class="big-gray-btn">Descargue el resultado</a>
-                <a href="#" class="big-orange-btn">Necesita un <br>instalador?</a>
+                <a href="#" class="big-orange-btn">¿Necesita un <br>instalador?</a>
             </div>
         </div>
     </div>

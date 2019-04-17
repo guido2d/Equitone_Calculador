@@ -131,7 +131,11 @@
     <div class="lineas">
         <table>
             <tr class="grey">
+                @if($titulo == 'revestimiento')
                 <td colspan="2"><img src="{{ asset('img/lineas.png') }}" alt="" width="10"> Revestimiento con PIZARREÑO CEDRAL ®</td>
+                @else
+                <td colspan="2"><img src="{{ asset('img/lineas.png') }}" alt="" width="10"> Cerramiento con PIZARREÑO CEDRAL ® </td>
+                @endif
                 <td style="float:right;">TOTAL &nbsp;| &nbsp;{{ number_format($mt2, 2, '.', '') }} mts<sup>2</sup></td>
             </tr>
         </table>
