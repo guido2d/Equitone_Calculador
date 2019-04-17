@@ -583,7 +583,8 @@
             mt2Vanos += calcularConAlto($(this));
         });
 
-        rta = (parseFloat(mt2Fachada) + parseFloat(mt2FachadaTriangular)) - parseFloat(mt2Vanos);
+        rta = (parseFloat(mt2Fachada.toFixed(2)) + parseFloat(mt2FachadaTriangular.toFixed(2))) - parseFloat(mt2Vanos.toFixed(2));
+
         return rta;
     }
 

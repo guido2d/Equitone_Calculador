@@ -286,7 +286,7 @@ function calcularConAltoTriangular(obj){
 function calcularTotal() {
 
     mt2aRevestir = calcularMtsARevestir();
-
+    
     if (mt2aRevestir < 0) {
         Swal.fire({
             text: 'La superficie a revestir no puede ser negativa.',
@@ -319,9 +319,9 @@ function calcularMtsARevestir() {
     $('#puertasyventanas .input_text.alto').each(function (index, element) {
         mt2Vanos += calcularConAlto($(this));
     });
-
-    rta = (mt2Fachada.toFixed(2) + mt2FachadaTriangular.toFixed(2)) - mt2Vanos.toFixed(2);
-
+    
+    rta = (parseFloat(mt2Fachada.toFixed(2)) + parseFloat(mt2FachadaTriangular.toFixed(2))) - parseFloat(mt2Vanos.toFixed(2));
+    
     return rta;
 }
 
