@@ -12,7 +12,7 @@
             <div class="m-wrap">
                 <div class="col-md-12 p0 mt20">
                     <img src="{{ asset('img/fachada_revestir.png') }}" alt="" style="position: absolute;top: 1px;">
-                    <h4 class="table_title">Resultados</h4>
+                    <h4 class="table_title">Resumen de datos informados</h4>
                 </div>
                 <table id="tableFachada" class="table-calculator">
                     <tr>
