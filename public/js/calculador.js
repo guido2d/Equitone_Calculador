@@ -36,8 +36,8 @@ $(document).ready(function () {
         if (cantFachadas <= 3) {
             var trPuertas = '<tr>';
             trPuertas += '<td class="first-line"><img src="img/icons/rectangular.svg" alt=""> Fachada nro. ' + (cantFachadas + 1) + '</td>';
-            trPuertas += '<td class="oline"><input type="number" class="input_text alto test123" placeholder="0.00"> mts</td>';
-            trPuertas += '<td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>';
+            trPuertas += '<td class="oline"><input type="text" class="input_text alto" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
+            trPuertas += '<td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
             trPuertas += "<td class='less' onclick='quitarElement(this,\"rectangular\")'>-</td>";
             trPuertas += '</tr>';
             $('#tableFachada').append(trPuertas);
@@ -55,8 +55,8 @@ $(document).ready(function () {
         if (cantFachadasTriangulares <= 1) {
             var trPuertas = '<tr>';
             trPuertas += '<td class="first-line"><img src="img/icons/triangular.svg" alt=""> Fachada - triangular</td>';
-            trPuertas += '<td class="oline"><input type="number" class="input_text alto" placeholder="0.00"> mts</td>';
-            trPuertas += '<td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>';
+            trPuertas += '<td class="oline"><input type="text" class="input_text alto" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
+            trPuertas += '<td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
             trPuertas += "<td class='less' onclick='quitarElement(this,\"triangular\")'>-</td>";;
             trPuertas += '</tr>';
             $('#tableTriangular').append(trPuertas);
@@ -73,8 +73,8 @@ $(document).ready(function () {
     $('.plus-puertas').on('click', function (e) {
         var trPuertas = '<tr>';
         trPuertas += '<td class="first-line"><img src="/img/icons/puertas.svg" alt=""> Puerta</td>';
-        trPuertas += '<td class="oline"><input type="number" class="input_text alto puerta" placeholder="0.00"> mts</td>';
-        trPuertas += '<td class="oline"><input type="number" class="input_text ancho puerta" placeholder="0.00"> mts</td>';
+        trPuertas += '<td class="oline"><input type="text" class="input_text alto puerta" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
+        trPuertas += '<td class="oline"><input type="text" class="input_text ancho puerta" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
         trPuertas += '<td class="less" onclick="quitarElement(this)">-</td>';
         trPuertas += '</tr>';
         $('#tablePuertas').append(trPuertas);
@@ -83,8 +83,8 @@ $(document).ready(function () {
     $('.plus-ventana').on('click', function (e) {
         var trPuertas = '<tr>';
         trPuertas += '<td class="first-line"><img src="/img/icons/ventanas.svg" alt=""> Ventana</td>';
-        trPuertas += '<td class="oline"><input type="number" class="input_text alto ventana" placeholder="0.00"> mts</td>';
-        trPuertas += '<td class="oline"><input type="number" class="input_text ancho ventana" placeholder="0.00"> mts</td>';
+        trPuertas += '<td class="oline"><input type="text" class="input_text alto ventana" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
+        trPuertas += '<td class="oline"><input type="text" class="input_text ancho ventana" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
         trPuertas += '<td class="less" onclick="quitarElement(this)">-</td>';
         trPuertas += '</tr>';
         $('#tableVentanas').append(trPuertas);
@@ -250,6 +250,8 @@ function quitarElement(obj, tipo) {
 function calcularConAlto(obj) {
     var alto = obj.val();
     var ancho = obj.parent().next().children(':first-child').val();
+    alto = alto.toString().replace(',', '.');
+    ancho = ancho.toString().replace(',', '.');
     if (isNaN(ancho) || ancho == "") {
         ancho = 0;
     }
@@ -274,6 +276,8 @@ function calcularConAncho(obj) {
 function calcularConAltoTriangular(obj){
     var alto = obj.val();
     var ancho = obj.parent().next().children(':first-child').val();
+    alto = alto.toString().replace(',', '.');
+    ancho = ancho.toString().replace(',', '.');
     if (isNaN(ancho) || ancho == "") {
         ancho = 0;
     }
@@ -295,11 +299,16 @@ function calcularTotal() {
         });
         mt2aRevestir = 0;
     }
+    
+    var total = mt2aRevestir.toFixed(2);
+    total = total.replace('.', ',');
 
     $('.totalMts').text("");
-    $('.totalMts').text(mt2aRevestir.toFixed(2));
+    $('.totalMts').text(total);
 
     perfilBase = calcularPerfilBase();
+    console.log('perfilBase: ' + perfilBase);
+    console.log('mt2aRevestir: ' + mt2aRevestir);
 }
 
 function calcularMtsARevestir() {
@@ -334,6 +343,7 @@ function calcularPerfilBase() {
 
     $('.fachadas .input_text.ancho').each(function (index, element) {
         anchoFachadas = $(this).val();
+        anchoFachadas = anchoFachadas.toString().replace(',', '.');
         if (isNaN(anchoFachadas) || anchoFachadas == "") {
             anchoFachadas = 0;
         }
@@ -342,6 +352,7 @@ function calcularPerfilBase() {
 
     $('#puertasyventanas .input_text.ancho.ventana').each(function (index, element) {
         anchoVentanas = $(this).val();
+        anchoVentanas = anchoVentanas.toString().replace(',', '.');
         if (isNaN(anchoVentanas) || anchoVentanas == "") {
             anchoVentanas = 0;
         }
@@ -354,19 +365,26 @@ function calcularPerfilBase() {
 }
 
 function calcularPerfilJyL() {
+    /*VALORES*/
     var esquinasExternas = $('#cantExternas').val();
     var esquinasInternas = $('#cantInternas').val();
     var cierreLateral = $('#cantCierreLateral').val();
     var altoFachadaPrincipal = $('#tableFachada .input_text.alto:first').val();
+    altoFachadaPrincipal = altoFachadaPrincipal.toString().replace(',', '.');
     var altoVentana1 = $('#tableVentanas .input_text.alto:first').val();
+    altoVentana1 = altoVentana1.toString().replace(',', '.');
+    
+    /*CALCULOS*/
     var perfilExterno = parseFloat(altoFachadaPrincipal) * parseInt(esquinasExternas);
     var perfilInterno = parseFloat(altoFachadaPrincipal) * parseInt(esquinasInternas);
     var perfilCierreLateral = parseFloat(altoFachadaPrincipal) * parseInt(cierreLateral);
     var perfilJ1x2 = parseFloat(altoVentana1) * 2;
     var perfilJF1 = (parseFloat(perfilExterno) * 2) + (parseFloat(perfilInterno) * 2) + parseFloat(perfilCierreLateral) + parseFloat(perfilJ1x2);
     var altoRestoVentanas = 0;
+    
     $('#tableVentanas tr').find('.input_text.alto').each(function (index, element) {
         var alto = $(this).val();
+        alto = alto.toString().replace(',', '.');
         if (isNaN(alto) || alto == "") {
             alto = 0;
         }
@@ -381,10 +399,25 @@ function calcularPerfilCortagotera() {
     var anchoVentanas = 0;
     $('#tableVentanas tr').find('.input_text.ancho').each(function (index, element) {
         var ancho = $(this).val();
+        ancho = ancho.toString().replace(',', '.');
         if (isNaN(ancho) || ancho == "") {
             ancho = 0;
         }
         anchoVentanas += parseFloat(ancho);
     });
     perfilCortagotera = anchoVentanas;
+}
+
+function check(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla == 8) {
+        return true;
+    }
+
+    // Patron de entrada, en este caso solo acepta numeros y letras
+    patron = /[0-9,]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
 }

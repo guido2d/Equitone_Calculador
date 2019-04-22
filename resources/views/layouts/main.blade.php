@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <title>Cedral: Weatherboard Cladding - Cedral</title>
@@ -22,7 +22,7 @@
     @include('layouts.footer')
     
         
-    @yield('js')    
+    @yield('js')
 </body>
 
 </html>

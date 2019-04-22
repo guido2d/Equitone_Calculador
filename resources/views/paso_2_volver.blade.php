@@ -22,7 +22,7 @@
                 <p>TOTAL</p>
                 <div class="divider-dotted"></div>
                 <p class="total-mt">
-                    <let class="totalMts">{{ number_format($mt2, 2, '.', '') }}</let> mts<sup>2</sup> </p>
+                    <let class="totalMts">{{ number_format($mt2, 2, ',', '') }}</let> mts<sup>2</sup> </p>
             </div>
         </div>
         <hr>
@@ -45,8 +45,8 @@
                     @if(is_array($fachadas_rectangulares) and sizeof($fachadas_rectangulares) > 0) @foreach($fachadas_rectangulares as $fc)
                     <tr>
                         <td class="first-line"><img src="{{ asset('img/icons/rectangular.svg') }}"> {{ $fc->nombre }}</td>
-                        <td class="oline"><input type="number" class="input_text alto" placeholder="0.00" value="{{ $fc->alto }}"> mts</td>
-                        <td class="oline"><input type="number" class="input_text ancho" placeholder="0.00" value="{{ $fc->ancho }}"> mts</td>
+                        <td class="oline"><input type="text" class="input_text alto" placeholder="0,00" value="{{ $fc->alto }}" onkeypress="return check(event)"> mts</td>
+                        <td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" value="{{ $fc->ancho }}" onkeypress="return check(event)"> mts</td>
                         @if($loop->first)
                         <td class="plus plus-fachada tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada a revestir.</span></td>
                         @else
@@ -56,8 +56,8 @@
                     @endforeach @else
                     <tr>
                         <td class="first-line"><img src="{{ asset('img/icons/rectangular.svg') }}"> Fachada principal</td>
-                        <td class="oline"><input type="number" class="input_text alto" placeholder="0.00"> mts</td>
-                        <td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>
+                        <td class="oline"><input type="text" class="input_text alto" placeholder="0,00" onkeypress="return check(event)"> mts</td>
+                        <td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" onkeypress="return check(event)"> mts</td>
                         <td class="plus plus-fachada tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada a revestir.</span></td>
                     </tr>
                     @endif
@@ -69,8 +69,8 @@
                     @if(is_array($fachadas_triangulares) and sizeof($fachadas_triangulares) > 0) @foreach($fachadas_triangulares as $ft)
                     <tr>
                         <td class="first-line"><img src="{{ asset('img/icons/triangular.svg') }}" alt=""> {{ $ft->nombre }}</td>
-                        <td class="oline"><input type="number" class="input_text alto" placeholder="0.00" value="{{ $ft->alto }}"> mts</td>
-                        <td class="oline"><input type="number" class="input_text ancho" placeholder="0.00" value="{{ $ft->ancho }}"> mts</td>
+                        <td class="oline"><input type="text" class="input_text alto" placeholder="0,00" value="{{ $ft->alto }}" onkeypress="return check(event)"> mts</td>
+                        <td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" value="{{ $ft->ancho }}" onkeypress="return check(event)"> mts</td>
                         @if($loop->first)
                         <td class="plus plus-triangular tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada triangular.</span></td>
                         @else
@@ -80,8 +80,8 @@
                     @endforeach @else
                     <tr>
                         <td class="first-line"><img src="{{ asset('img/icons/triangular.svg') }}" alt=""> Fachada - triangular</td>
-                        <td class="oline"><input type="number" class="input_text alto" placeholder="0.00"> mts</td>
-                        <td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>
+                        <td class="oline"><input type="text" class="input_text alto" placeholder="0,00" onkeypress="return check(event)"> mts</td>
+                        <td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" onkeypress="return check(event)"> mts</td>
                         <td class="plus plus-triangular tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada triangular.</span></td>
                     </tr>
                     @endif
@@ -117,8 +117,8 @@
                         @if(is_array($puertas) and sizeof($puertas) > 0) @foreach($puertas as $p)
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/puertas.svg') }}" alt=""> {{ $p->nombre }}</td>
-                            <td class="oline"><input type="text" class="input_text alto puerta" placeholder="0.00" value="{{ $p->alto }}"> mts</td>
-                            <td class="oline"><input type="text" class="input_text ancho puerta" placeholder="0.00" value="{{ $p->ancho }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text alto puerta" placeholder="0,00" value="{{ $p->alto }}" onkeypress="return check(event)"> mts</td>
+                            <td class="oline"><input type="text" class="input_text ancho puerta" placeholder="0,00" value="{{ $p->ancho }}" onkeypress="return check(event)"> mts</td>
                             @if($loop->first)
                             <td class="plus plus-puertas tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra puerta.</span></td>
                             @else
@@ -128,8 +128,8 @@
                         @endforeach @else
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/puertas.svg') }}" alt=""> Puerta</td>
-                            <td class="oline"><input type="number" class="input_text alto puerta" placeholder="0.00"> mts</td>
-                            <td class="oline"><input type="number" class="input_text ancho puerta" placeholder="0.00"> mts</td>
+                            <td class="oline"><input type="text" class="input_text alto puerta" placeholder="0,00" onkeypress="return check(event)"> mts</td>
+                            <td class="oline"><input type="text" class="input_text ancho puerta" placeholder="0,00" onkeypress="return check(event)"> mts</td>
                             <td class="plus plus-puertas tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra puerta.</span></td>
                         </tr>
                         @endif
@@ -141,8 +141,8 @@
                         @if(is_array($ventanas) and sizeof($ventanas) > 0) @foreach($ventanas as $v)
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/ventanas.svg') }}" alt=""> {{ $v->nombre }}</td>
-                            <td class="oline"><input type="text" class="input_text alto ventana" placeholder="0.00" value="{{ $v->alto }}"> mts</td>
-                            <td class="oline"><input type="text" class="input_text ancho ventana" placeholder="0.00" value="{{ $v->ancho }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text alto ventana" placeholder="0,00" value="{{ $v->alto }}" onkeypress="return check(event)"> mts</td>
+                            <td class="oline"><input type="text" class="input_text ancho ventana" placeholder="0,00" value="{{ $v->ancho }}" onkeypress="return check(event)"> mts</td>
                             @if($loop->first)
                             <td class="plus plus-ventana tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra ventana.</span></td>
                             @else
@@ -152,8 +152,8 @@
                         @endforeach @else
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/ventanas.svg') }}" alt=""> Ventana</td>
-                            <td class="oline"><input type="number" class="input_text alto ventana" placeholder="0.00"> mts</td>
-                            <td class="oline"><input type="number" class="input_text ancho ventana" placeholder="0.00"> mts</td>
+                            <td class="oline"><input type="text" class="input_text alto ventana" placeholder="0,00" onkeypress="return check(event)"> mts</td>
+                            <td class="oline"><input type="text" class="input_text ancho ventana" placeholder="0,00" onkeypress="return check(event)"> mts</td>
                             <td class="plus plus-ventana tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra ventana.</span></td>
                         </tr>
                         @endif
@@ -227,7 +227,7 @@
                 <p>TOTAL</p>
                 <div class="divider-dotted"></div>
                 <p class="total-mt">
-                    <let class="totalMts">{{ number_format($mt2, 2, '.', '') }}</let> mts<sup>2</sup></p>
+                    <let class="totalMts">{{ number_format($mt2, 2, ',', '') }}</let> mts<sup>2</sup></p>
             </div>
         </div>
         <hr>
@@ -249,11 +249,11 @@
 <script>
     var cantFachadas = @if(is_array($fachadas_rectangulares)) {{ sizeof($fachadas_rectangulares) }} @else 1 @endif;
     var cantFachadasTriangulares = @if(is_array($fachadas_triangulares)) {{ sizeof($fachadas_triangulares) }} @else 1 @endif;
-    var mt2aRevestir = {{ number_format($mt2, 2, '.', '') }};
-    var perfilBase = {{ number_format($perfilBase, 2, '.', '') }};
-    var perfilJ = {{ number_format($perfilJ, 2, '.', '') }};
-    var perfilL = {{ number_format($perfilL, 2, '.', '') }};
-    var perfilCortagotera = {{ number_format($perfilCortagotera, 2, '.', '') }};
+    var mt2aRevestir = {{ number_format($mt2, 2, ',', '') }};
+    var perfilBase = {{ number_format($perfilBase, 2, ',', '') }};
+    var perfilJ = {{ number_format($perfilJ, 2, ',', '') }};
+    var perfilL = {{ number_format($perfilL, 2, ',', '') }};
+    var perfilCortagotera = {{ number_format($perfilCortagotera, 2, ',', '') }};
 
     $(document).ready(function() {
 
@@ -286,8 +286,8 @@
                 var img = "{{asset('/img/icons/rectangular.svg') }}";
                 var trPuertas = '<tr>';
                 trPuertas += '<td class="first-line"><img src="' + img + '" alt=""> Fachada nro. ' + (cantFachadas + 1) + '</td>';
-                trPuertas += '<td class="oline"><input type="number" class="input_text alto test123" placeholder="0.00"> mts</td>';
-                trPuertas += '<td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>';
+                trPuertas += '<td class="oline"><input type="text" class="input_text alto" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
+                trPuertas += '<td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
                 trPuertas += "<td class='less' onclick='quitarElement(this,\"rectangular\")'>-</td>";
                 trPuertas += '</tr>';
                 $('#tableFachada').append(trPuertas);
@@ -306,8 +306,8 @@
                 var img = "{{asset('/img/icons/triangular.svg') }}";
                 var trPuertas = '<tr>';
                 trPuertas += '<td class="first-line"><img src="' + img + '" alt=""> Fachada - triangular</td>';
-                trPuertas += '<td class="oline"><input type="number" class="input_text alto" placeholder="0.00"> mts</td>';
-                trPuertas += '<td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>';
+                trPuertas += '<td class="oline"><input type="text" class="input_text alto" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
+                trPuertas += '<td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
                 trPuertas += "<td class='less' onclick='quitarElement(this,\"triangular\")'>-</td>";;
                 trPuertas += '</tr>';
                 $('#tableTriangular').append(trPuertas);
@@ -325,8 +325,8 @@
             var img = "{{asset('/img/icons/puertas.svg') }}";
             var trPuertas = '<tr>';
             trPuertas += '<td class="first-line"><img src="' + img + '" alt=""> Puerta</td>';
-            trPuertas += '<td class="oline"><input type="number" class="input_text alto puerta" placeholder="0.00"> mts</td>';
-            trPuertas += '<td class="oline"><input type="number" class="input_text ancho puerta" placeholder="0.00"> mts</td>';
+            trPuertas += '<td class="oline"><input type="text" class="input_text alto puerta" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
+            trPuertas += '<td class="oline"><input type="text" class="input_text ancho puerta" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
             trPuertas += '<td class="less" onclick="quitarElement(this)">-</td>';
             trPuertas += '</tr>';
             $('#tablePuertas').append(trPuertas);
@@ -336,8 +336,8 @@
             var img = "{{asset('/img/icons/ventanas.svg') }}";
             var trPuertas = '<tr>';
             trPuertas += '<td class="first-line"><img src="' + img + '" alt=""> Ventana</td>';
-            trPuertas += '<td class="oline"><input type="number" class="input_text alto ventana" placeholder="0.00"> mts</td>';
-            trPuertas += '<td class="oline"><input type="number" class="input_text ancho ventana" placeholder="0.00"> mts</td>';
+            trPuertas += '<td class="oline"><input type="text" class="input_text alto ventana" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
+            trPuertas += '<td class="oline"><input type="text" class="input_text ancho ventana" placeholder="0,00" onkeypress="return check(event)"> mts</td>';
             trPuertas += '<td class="less" onclick="quitarElement(this)">-</td>';
             trPuertas += '</tr>';
             $('#tableVentanas').append(trPuertas);
@@ -517,6 +517,8 @@
     function calcularConAlto(obj) {
         var alto = obj.val();
         var ancho = obj.parent().next().children(':first-child').val();
+        alto = alto.toString().replace(',', '.');
+        ancho = ancho.toString().replace(',', '.');
         if (isNaN(ancho) || ancho == "") {
             ancho = 0;
         }
@@ -526,21 +528,11 @@
         return parseFloat(alto) * parseFloat(ancho);
     }
 
-    function calcularConAncho(obj) {
-        var ancho = obj.val();
-        var alto = obj.parent().prev().children(':first-child').val();
-        if (isNaN(alto) || alto == "") {
-            alto = 0;
-        }
-        if (isNaN(ancho) || ancho == "") {
-            ancho = 0;
-        }
-        return parseFloat(alto) * parseFloat(ancho);
-    }
-    
     function calcularConAltoTriangular(obj){
         var alto = obj.val();
         var ancho = obj.parent().next().children(':first-child').val();
+        alto = alto.toString().replace(',', '.');
+        ancho = ancho.toString().replace(',', '.');
         if (isNaN(ancho) || ancho == "") {
             ancho = 0;
         }
@@ -562,7 +554,10 @@
             });
             mt2aRevestir = 0;
         }
-
+        
+        var total = mt2aRevestir.toFixed(2);
+        total = total.replace('.', ',');
+        
         $('.totalMts').text("");
         $('.totalMts').text(mt2aRevestir.toFixed(2));
 
@@ -601,6 +596,7 @@
 
         $('.fachadas .input_text.ancho').each(function(index, element) {
             anchoFachadas = $(this).val();
+            anchoFachadas = anchoFachadas.toString().replace(',', '.');
             if (isNaN(anchoFachadas) || anchoFachadas == "") {
                 anchoFachadas = 0;
             }
@@ -609,6 +605,7 @@
 
         $('#puertasyventanas .input_text.ancho.ventana').each(function(index, element) {
             anchoVentanas = $(this).val();
+            anchoVentanas = anchoVentanas.toString().replace(',', '.');
             if (isNaN(anchoVentanas) || anchoVentanas == "") {
                 anchoVentanas = 0;
             }
@@ -621,19 +618,26 @@
     }
 
     function calcularPerfilJyL() {
+        /*VALORES*/
         var esquinasExternas = $('#cantExternas').val();
         var esquinasInternas = $('#cantInternas').val();
         var cierreLateral = $('#cantCierreLateral').val();
         var altoFachadaPrincipal = $('#tableFachada .input_text.alto:first').val();
+        altoFachadaPrincipal = altoFachadaPrincipal.toString().replace(',', '.');
         var altoVentana1 = $('#tableVentanas .input_text.alto:first').val();
+        altoVentana1 = altoVentana1.toString().replace(',', '.');
+
+        /*CALCULOS*/
         var perfilExterno = parseFloat(altoFachadaPrincipal) * parseInt(esquinasExternas);
         var perfilInterno = parseFloat(altoFachadaPrincipal) * parseInt(esquinasInternas);
         var perfilCierreLateral = parseFloat(altoFachadaPrincipal) * parseInt(cierreLateral);
         var perfilJ1x2 = parseFloat(altoVentana1) * 2;
         var perfilJF1 = (parseFloat(perfilExterno) * 2) + (parseFloat(perfilInterno) * 2) + parseFloat(perfilCierreLateral) + parseFloat(perfilJ1x2);
         var altoRestoVentanas = 0;
-        $('#tableVentanas tr').find('.input_text.alto').each(function(index, element) {
+
+        $('#tableVentanas tr').find('.input_text.alto').each(function (index, element) {
             var alto = $(this).val();
+            alto = alto.toString().replace(',', '.');
             if (isNaN(alto) || alto == "") {
                 alto = 0;
             }
@@ -646,14 +650,29 @@
 
     function calcularPerfilCortagotera() {
         var anchoVentanas = 0;
-        $('#tableVentanas tr').find('.input_text.ancho').each(function(index, element) {
+        $('#tableVentanas tr').find('.input_text.ancho').each(function (index, element) {
             var ancho = $(this).val();
+            ancho = ancho.toString().replace(',', '.');
             if (isNaN(ancho) || ancho == "") {
                 ancho = 0;
             }
             anchoVentanas += parseFloat(ancho);
         });
         perfilCortagotera = anchoVentanas;
+    }
+
+    function check(e) {
+        tecla = (document.all) ? e.keyCode : e.which;
+
+        //Tecla de retroceso para borrar, siempre la permite
+        if (tecla == 8) {
+            return true;
+        }
+
+        // Patron de entrada, en este caso solo acepta numeros y letras
+        patron = /[0-9,]/;
+        tecla_final = String.fromCharCode(tecla);
+        return patron.test(tecla_final);
     }
 
 </script>

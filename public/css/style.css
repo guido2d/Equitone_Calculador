@@ -299,26 +299,58 @@ hr.dotted {
 .big-orange-btn {
     font-family: GillSans;
     color: white;
-    background-color: rgb(158, 158, 158);
+    background-color: #ffa300;
     box-shadow: 0px 5px 3.96px 0.04px rgba(0, 0, 0, 0.35);
     width: 165px;
     text-decoration: none !important;
     font-size: 20px;
     border-radius: 20px;
     padding: 9px 0px 3px;
-    background: #ffa300;
 }
 
-.big-gray-btn:hover {
+.orange-btn {
+    font-family: GillSans;
+    color: white;
+    background-color: #ffa300;
+    -webkit-box-shadow: 0px 5px 3.96px 0.04px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0px 5px 3.96px 0.04px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 5px 3.96px 0.04px rgba(0, 0, 0, 0.35);
+    width: 135px;
+    text-decoration: none !important;
+    font-size: 16px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+    padding: 9px 0px 3px;
+}
+
+.gray-btn {
+    font-family: GillSans;
+    color: white;
+    background-color: rgb(158, 158, 158);
+    box-shadow: 0px 5px 3.96px 0.04px rgba(0, 0, 0, 0.35);
+    width: 135px;
+    text-decoration: none !important;
+    font-size: 15px;
+    border-radius: 20px;
+    padding: 9px 0px 3px;
+    margin-right: 51px;
+}
+
+.big-gray-btn:hover,
+.gray-btn:hover {
     background: #f9f9f9;
     text-decoration: none;
     color: #4d4e53;
 }
 
-.big-orange-btn:hover {
+.big-orange-btn:hover,
+.orange-btn:hover {
     background: #f9f9f9;
     text-decoration: none;
-    color: #4d4e53;
+    color: #4d4e53 !important;
 }
 
 #puertasyventanas {
@@ -406,6 +438,11 @@ hr.dotted {
     padding: 5px;
 }
 
+.form-cta input.error,
+.form-cta select.error{
+    border-bottom: 1px solid red !important;
+}
+
 .form-cta select {
     background: transparent;
     color: #757575;
@@ -424,14 +461,27 @@ hr.dotted {
     width: 90%;
 }
 
-.btn-header{
+.btn-header {
     color: #636f77;
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
 }
 
-.btn-header:hover{
+.btn-header:hover {
     text-decoration: none;
     color: #636f77;
+}
+
+.requeridos {
+    font-size: 12px;
+    color: #808080;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.requeridos.error{
+    color: red;
+    display: none;
 }

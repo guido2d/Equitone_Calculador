@@ -443,7 +443,7 @@ class CalculadorController extends Controller{
                                              'materiales1',
                                              'materiales2'));
         
-        return $pdf->download('invoice.pdf');
+        return $pdf->download('PizarreñoCedralCalculoMateriales.pdf');
         
     }
     

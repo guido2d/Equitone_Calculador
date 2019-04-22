@@ -21,7 +21,7 @@
             <div class="total-row">
                 <p>TOTAL</p>
                 <div class="divider-dotted"></div>
-                <p class="total-mt"><let class="totalMts">0.00</let> mts<sup>2</sup> </p>
+                <p class="total-mt"><let class="totalMts">0,00</let> mts<sup>2</sup> </p>
             </div>
         </div>
         <hr>
@@ -43,8 +43,8 @@
                     </tr>
                     <tr>
                         <td class="first-line"><img src="img/icons/rectangular.svg"> Fachada principal</td>
-                        <td class="oline"><input type="number" class="input_text alto" placeholder="0.00"> mts</td>
-                        <td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>
+                        <td class="oline"><input type="text" class="input_text alto" placeholder="0,00" onkeypress="return check(event)"> mts</td>
+                        <td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" onkeypress="return check(event)"> mts</td>
                         <td class="plus plus-fachada tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada a revestir.</span></td>
                     </tr>
                 </table>
@@ -54,8 +54,8 @@
                 <table id="tableTriangular" class="table-calculator">
                     <tr>
                         <td class="first-line"><img src="img/icons/triangular.svg" alt=""> Fachada - triangular</td>
-                        <td class="oline"><input type="number" class="input_text alto" placeholder="0.00"> mts</td>
-                        <td class="oline"><input type="number" class="input_text ancho" placeholder="0.00"> mts</td>
+                        <td class="oline"><input type="text" class="input_text alto" placeholder="0,00" onkeypress="return check(event)"> mts</td>
+                        <td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" onkeypress="return check(event)"> mts</td>
                         <td class="plus plus-triangular tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada triangular.</span></td>
                     </tr>
                 </table>
@@ -89,8 +89,8 @@
                         </tr>
                         <tr>
                             <td class="first-line"><img src="img/icons/puertas.svg" alt=""> Puerta</td>
-                            <td class="oline"><input type="number" class="input_text alto puerta" placeholder="0.00"> mts</td>
-                            <td class="oline"><input type="number" class="input_text ancho puerta" placeholder="0.00"> mts</td>
+                            <td class="oline"><input type="text" class="input_text alto puerta" placeholder="0,00" onkeypress="return check(event)"> mts</td>
+                            <td class="oline"><input type="text" class="input_text ancho puerta" placeholder="0,00" onkeypress="return check(event)"> mts</td>
                             <td class="plus plus-puertas tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra puerta.</span></td>
                         </tr>
                     </table>
@@ -100,8 +100,8 @@
                     <table id="tableVentanas" class="table-calculator">
                         <tr>
                             <td class="first-line"><img src="img/icons/ventanas.svg" alt=""> Ventana</td>
-                            <td class="oline"><input type="number" class="input_text alto ventana" placeholder="0.00"> mts</td>
-                            <td class="oline"><input type="number" class="input_text ancho ventana" placeholder="0.00"> mts</td>
+                            <td class="oline"><input type="text" class="input_text alto ventana" placeholder="0,00" onkeypress="return check(event)"> mts</td>
+                            <td class="oline"><input type="text" class="input_text ancho ventana" placeholder="0,00" onkeypress="return check(event)"> mts</td>
                             <td class="plus plus-ventana tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra ventana.</span></td>
                         </tr>
                     </table>
@@ -159,7 +159,7 @@
                 <p>TOTAL</p>
                 <div class="divider-dotted"></div>
                 <p class="total-mt">
-                    <let class="totalMts">0.00</let> mts<sup>2</sup></p>
+                    <let class="totalMts">0,00</let> mts<sup>2</sup></p>
             </div>
         </div>
         <hr>

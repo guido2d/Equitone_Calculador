@@ -8,13 +8,13 @@
                         <div class="o-flex__child u-1/1 u-1/2@tablet">
                             <ul data-webid="footer-linksColumn1">
                                 <li>
-                                    <a href="/en-gb/sidings/#why-cedral">Why Cedral</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#por-que-cedral">Why Cedral</a>
                                 </li>
                                 <li>
-                                    <a href="/en-gb/sidings/#fibrecement">Fibre Cement</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#fibrocemento">Fibre Cement</a>
                                 </li>
                                 <li>
-                                    <a href="/en-gb/sidings/#choose-your-style">Products</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#productos">Products</a>
                                 </li>
                             </ul>
                         </div>
@@ -22,13 +22,13 @@
                         <div class="o-flex__child u-1/1 u-1/2@tablet">
                             <ul data-webid="footer-linksColumn2">
                                 <li>
-                                    <a href="/en-gb/sidings/#references">References</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#referencias">References</a>
                                 </li>
                                 <li>
-                                    <a href="/en-gb/sidings/#installation">Installation</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#instalacion">Installation</a>
                                 </li>
                                 <li>
-                                    <a href="/en-gb/sidings/#contact">Contact</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#contacto">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -44,9 +44,6 @@
                 </a>
             <ul class="c-footer__about o-flex__child o-list">
                 <li>© Etex 2019</li>
-                <li>
-                    <a href="/en-gb/privacy-policy/" title="Privacy Policy">Privacy Policy</a>
-                </li>
             </ul>
         </div>
     </div>

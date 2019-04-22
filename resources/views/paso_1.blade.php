@@ -1,6 +1,6 @@
 @extends('layouts.main') 
 @section('volver')
-<a href="#" class="btn-header"><img src="{{ asset('img/icons/arrow.png') }}" alt="" width="32"> Volver</a>
+<a href="https://www.cedral.world/es-cl/sidings" target="_blank" class="btn-header"><img src="{{ asset('img/icons/arrow.png') }}" alt="" width="32"> Volver</a>
 @endsection
 
 @section('contenido')

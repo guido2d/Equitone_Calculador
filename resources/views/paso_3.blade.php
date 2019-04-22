@@ -101,7 +101,15 @@
                     <let id="totalMts">{{ number_format($mt2, 2, '.', '') }}</let> mts</p>
             </div>
         </div>
-        <hr>
+        <hr style="margin-bottom: 16px;">
+        
+        <div >
+            <p style="font-size:12px;">
+                El resultado de cantidad de materiales a utilizar que recibirá a través de esta herramienta se basa en la información provista manualmente por usted y en base a geometrías estándar y mejores prácticas.
+                <br>
+                Por favor, evaluar los datos informados y, ante cualquier inquietud o necesidad de mayor información, contáctenos a contacto.cl@etexgroup.com.
+            </p>
+        </div>
 
         <div class="row">
             <div class="col-md-12 text-center mt62 p0">

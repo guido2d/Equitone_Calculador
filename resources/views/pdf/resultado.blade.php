@@ -42,7 +42,7 @@
             position: relative;
             display: inline-block;
             color: #586276;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 100;
         }
 
@@ -63,14 +63,14 @@
             font-family: DejaVu Sans;
             font-weight: 100;
             color: #586276;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .table-calculator td {
             font-family: DejaVu Sans;
             font-weight: 400;
             color: #5b6770;
-            font-size: 16px;
+            font-size: 12px;
         }
 
         hr.dotted {
@@ -90,14 +90,14 @@
             font-family: DejaVu Sans;
             font-weight: 100;
             color: #5b6770;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .table-esquinas td {
             font-family: DejaVu Sans;
             font-weight: 400;
             color: #5b6770;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .grey {
@@ -113,10 +113,23 @@
         .page-break {
             page-break-after: always;
         }
-        
-        p{
+
+        p {
             color: #5b6770;
             font-size: 11px;
+            margin-top: 0px;
+        }
+
+        #footer {
+            position: fixed;
+            left: 0px;
+            bottom: -70px;
+            right: 0px;
+            height: 150px;
+        }
+
+        #footer p:first-child {
+            font-size: 10px;
         }
 
     </style>
@@ -195,8 +208,20 @@
             </tr>
         </table>
         @endif
+        <div id="footer">
+            <p>
+                El resultado de cantidad de materiales a utilizar que recibirá a través de esta herramienta se basa en la información provista manualmente por usted y en base a geometrías estándar y mejores prácticas.
+                <br> Por favor, evaluar los datos informados y, ante cualquier inquietud o necesidad de mayor información, contáctenos a contacto.cl@etexgroup.com.
+            </p>
+            <p style="background-color:#586276;color:white;margin-top:5px;text-align:right;padding:0px 5px;">
+                Sociedad Industrial Pizarreño S.A. / Av. Las Condes 975 - Las Condes Design – Piso 1 – Local 110 / Santiago, Chile <br> T +56 22391 2200 / www.pizarrenocedral.cl / contacto.cl@etexgroup.com
+            </p>
+        </div>
+
     </div>
+
     <div class="page-break"></div>
+
     <div class="lineas">
         <table style="width:100%;">
             <tr class="grey">
@@ -232,7 +257,7 @@
         </tr>
         @endforeach
     </table>
-    
+
     <table class="table-esquinas" style="widht:100%;border-spacing: 10px 10px;">
         <tr>
             <th></th>
@@ -251,10 +276,21 @@
         </tr>
         @endforeach
     </table>
-    <p>1 Descripción tornillo perfiles remate</p>
-    <p>2 Tornillo autoperforante y autoavellanante punta aguda 6x1"</p>
-    <p>* No tener en cuenta los materiales 8 y 9 en caso de NO instalarse el Siding PIZARREÑO CEDRAL sobre estructura Omega y aplicarse directamen- te sobre un tablero de virutas orientadas.</p>
-    
+    <p>
+        1 Descripción tornillo perfiles remate
+        <br> 2 Tornillo autoperforante y autoavellanante punta aguda 6x1"
+        <br> * No tener en cuenta los materiales 8 y 9 en caso de NO instalarse el Siding PIZARREÑO CEDRAL sobre estructura Omega y aplicarse directamen- te sobre un tablero de virutas orientadas.
+    </p>
+
+    <div id="footer">
+        <p>
+            El resultado de cantidad de materiales a utilizar que recibirá a través de esta herramienta se basa en la información provista manualmente por usted y en base a geometrías estándar y mejores prácticas.
+            <br> Por favor, evaluar los datos informados y, ante cualquier inquietud o necesidad de mayor información, contáctenos a contacto.cl@etexgroup.com.
+        </p>
+        <p style="background-color:#586276;color:white;margin-top:5px;text-align:right;padding:0px 5px;">
+            Sociedad Industrial Pizarreño S.A. / Av. Las Condes 975 - Las Condes Design – Piso 1 – Local 110 / Santiago, Chile <br> T +56 22391 2200 / www.pizarrenocedral.cl / contacto.cl@etexgroup.com
+        </p>
+    </div>
 
 </body>
 
