@@ -485,3 +485,8 @@ hr.dotted {
     color: red;
     display: none;
 }
+
+.requeridos.email{
+    color: red;
+    display: none;
+}
