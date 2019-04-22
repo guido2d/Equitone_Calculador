@@ -24,7 +24,7 @@
                         @foreach($fachadas_rectangulares as $fc)
                         <tr>
                             <td class="first-line">{{ $fc->nombre }}</td>
-                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($fc->ancho, 2, ',', '') }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($fc->alto, 2, ',', '') }}"> mts</td>
                             <td class="oline"><input type="text" class="input_text" value="{{ number_format($fc->ancho, 2, ',', '') }}"> mts</td>
                         </tr>
                         @endforeach
@@ -34,7 +34,7 @@
                         @foreach($fachadas_triangulares as $ft)
                         <tr>
                             <td class="first-line">{{ $ft->nombre }}</td>
-                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($ft->ancho, 2, ',', '') }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($ft->alto, 2, ',', '') }}"> mts</td>
                             <td class="oline"><input type="text" class="input_text" value="{{ number_format($ft->ancho, 2, ',', '') }}"> mts</td>
                         </tr>
                         @endforeach
