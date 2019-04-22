@@ -308,7 +308,7 @@ hr.dotted {
     padding: 9px 0px 3px;
 }
 
-.orange-btn {
+.md-orange-btn {
     font-family: GillSans;
     color: white;
     background-color: #ffa300;
@@ -326,7 +326,7 @@ hr.dotted {
     padding: 9px 0px 3px;
 }
 
-.gray-btn {
+.md-gray-btn {
     font-family: GillSans;
     color: white;
     background-color: rgb(158, 158, 158);

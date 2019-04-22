@@ -54,11 +54,11 @@
                     
                     <div class="row">
                         <div class="col-md-12 text-center mt62 p0">
-                            <a href="{{ asset('/resultados') }}/{{ $codigo }}" class="gray-btn">Volver</a>
+                            <a href="{{ asset('/resultados') }}/{{ $codigo }}" class="md-gray-btn">Volver</a>
                             @if($pdf == 'no')
-                                <a href="#" class="orange-btn btnSubmit">Enviar</a>
+                                <a href="#" class="md-orange-btn btnSubmit">Enviar</a>
                             @else
-                                <a href="{{ asset('/descargar-pdf') }}/{{ $codigo }}" class="orange-btn btnSubmit">Descargar</a>
+                                <a href="{{ asset('/descargar-pdf') }}/{{ $codigo }}" class="md-orange-btn btnSubmit">Descargar</a>
                             @endif
                         </div>
                     </div>
