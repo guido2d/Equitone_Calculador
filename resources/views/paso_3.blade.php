@@ -24,8 +24,8 @@
                         @foreach($fachadas_rectangulares as $fc)
                         <tr>
                             <td class="first-line">{{ $fc->nombre }}</td>
-                            <td class="oline"><input type="text" class="input_text" value="{{ $fc->alto }}"> mts</td>
-                            <td class="oline"><input type="text" class="input_text" value="{{ $fc->ancho }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($fc->ancho, 2, ',', '') }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($fc->ancho, 2, ',', '') }}"> mts</td>
                         </tr>
                         @endforeach
                     @endif
@@ -34,8 +34,8 @@
                         @foreach($fachadas_triangulares as $ft)
                         <tr>
                             <td class="first-line">{{ $ft->nombre }}</td>
-                            <td class="oline"><input type="text" class="input_text" value="{{ $ft->alto }}"> mts</td>
-                            <td class="oline"><input type="text" class="input_text" value="{{ $ft->ancho }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($ft->ancho, 2, ',', '') }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($ft->ancho, 2, ',', '') }}"> mts</td>
                         </tr>
                         @endforeach
                     @endif
@@ -50,8 +50,8 @@
                         @foreach($puertas as $p)    
                         <tr>
                             <td class="first-line">{{ $p->nombre }}</td>
-                            <td class="oline"><input type="text" class="input_text" value="{{ $p->alto }}"> mts</td>
-                            <td class="oline"><input type="text" class="input_text" value="{{ $p->ancho }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($p->ancho, 2, ',', '') }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($p->ancho, 2, ',', '') }}"> mts</td>
                         </tr>
                         @endforeach
                     @endif
@@ -59,8 +59,8 @@
                         @foreach($ventanas as $v)
                         <tr>
                             <td class="first-line">{{ $v->nombre }}</td>
-                            <td class="oline"><input type="text" class="input_text" value="{{ $v->alto }}"> mts</td>
-                            <td class="oline"><input type="text" class="input_text" value="{{ $v->ancho }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($v->alto, 2, ',', '') }}"> mts</td>
+                            <td class="oline"><input type="text" class="input_text" value="{{ number_format($v->ancho, 2, ',', '') }}"> mts</td>
                         </tr>
                         @endforeach
                     @endif
@@ -98,7 +98,7 @@
                 <p>TOTAL</p>
                 <div class="divider-dotted"></div>
                 <p class="total-mt">
-                    <let id="totalMts">{{ number_format($mt2, 2, '.', '') }}</let> mts</p>
+                    <let id="totalMts">{{ number_format($mt2, 2, ',', '') }}</let> mts</p>
             </div>
         </div>
         <hr style="margin-bottom: 16px;">

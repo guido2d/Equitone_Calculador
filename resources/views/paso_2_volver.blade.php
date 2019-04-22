@@ -45,8 +45,8 @@
                     @if(is_array($fachadas_rectangulares) and sizeof($fachadas_rectangulares) > 0) @foreach($fachadas_rectangulares as $fc)
                     <tr>
                         <td class="first-line"><img src="{{ asset('img/icons/rectangular.svg') }}"> {{ $fc->nombre }}</td>
-                        <td class="oline"><input type="text" class="input_text alto" placeholder="0,00" value="{{ $fc->alto }}" onkeypress="return check(event)"> mts</td>
-                        <td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" value="{{ $fc->ancho }}" onkeypress="return check(event)"> mts</td>
+                        <td class="oline"><input type="text" class="input_text alto" placeholder="0,00" value="{{ number_format($fc->alto, 2, ',', '') }}" onkeypress="return check(event)"> mts</td>
+                        <td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" value="{{ number_format($fc->alto, 2, ',', '') }}" onkeypress="return check(event)"> mts</td>
                         @if($loop->first)
                         <td class="plus plus-fachada tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada a revestir.</span></td>
                         @else
@@ -69,8 +69,8 @@
                     @if(is_array($fachadas_triangulares) and sizeof($fachadas_triangulares) > 0) @foreach($fachadas_triangulares as $ft)
                     <tr>
                         <td class="first-line"><img src="{{ asset('img/icons/triangular.svg') }}" alt=""> {{ $ft->nombre }}</td>
-                        <td class="oline"><input type="text" class="input_text alto" placeholder="0,00" value="{{ $ft->alto }}" onkeypress="return check(event)"> mts</td>
-                        <td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" value="{{ $ft->ancho }}" onkeypress="return check(event)"> mts</td>
+                        <td class="oline"><input type="text" class="input_text alto" placeholder="0,00" value="{{ number_format($ft->alto, 2, ',', '') }}" onkeypress="return check(event)"> mts</td>
+                        <td class="oline"><input type="text" class="input_text ancho" placeholder="0,00" value="{{ number_format($ft->alto, 2, ',', '') }}" onkeypress="return check(event)"> mts</td>
                         @if($loop->first)
                         <td class="plus plus-triangular tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra fachada triangular.</span></td>
                         @else
@@ -117,8 +117,8 @@
                         @if(is_array($puertas) and sizeof($puertas) > 0) @foreach($puertas as $p)
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/puertas.svg') }}" alt=""> {{ $p->nombre }}</td>
-                            <td class="oline"><input type="text" class="input_text alto puerta" placeholder="0,00" value="{{ $p->alto }}" onkeypress="return check(event)"> mts</td>
-                            <td class="oline"><input type="text" class="input_text ancho puerta" placeholder="0,00" value="{{ $p->ancho }}" onkeypress="return check(event)"> mts</td>
+                            <td class="oline"><input type="text" class="input_text alto puerta" placeholder="0,00" value="{{ number_format($p->alto, 2, ',', '') }}" onkeypress="return check(event)"> mts</td>
+                            <td class="oline"><input type="text" class="input_text ancho puerta" placeholder="0,00" value="{{ number_format($p->ancho, 2, ',', '') }}" onkeypress="return check(event)"> mts</td>
                             @if($loop->first)
                             <td class="plus plus-puertas tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra puerta.</span></td>
                             @else
@@ -141,8 +141,8 @@
                         @if(is_array($ventanas) and sizeof($ventanas) > 0) @foreach($ventanas as $v)
                         <tr>
                             <td class="first-line"><img src="{{ asset('img/icons/ventanas.svg') }}" alt=""> {{ $v->nombre }}</td>
-                            <td class="oline"><input type="text" class="input_text alto ventana" placeholder="0,00" value="{{ $v->alto }}" onkeypress="return check(event)"> mts</td>
-                            <td class="oline"><input type="text" class="input_text ancho ventana" placeholder="0,00" value="{{ $v->ancho }}" onkeypress="return check(event)"> mts</td>
+                            <td class="oline"><input type="text" class="input_text alto ventana" placeholder="0,00" value="{{ number_format($v->alto, 2, ',', '') }}" onkeypress="return check(event)"> mts</td>
+                            <td class="oline"><input type="text" class="input_text ancho ventana" placeholder="0,00" value="{{ number_format($v->ancho, 2, ',', '') }}" onkeypress="return check(event)"> mts</td>
                             @if($loop->first)
                             <td class="plus plus-ventana tooltip">+<span class="tooltiptext">Click aquí si quiere agregar otra ventana.</span></td>
                             @else
@@ -249,11 +249,11 @@
 <script>
     var cantFachadas = @if(is_array($fachadas_rectangulares)) {{ sizeof($fachadas_rectangulares) }} @else 1 @endif;
     var cantFachadasTriangulares = @if(is_array($fachadas_triangulares)) {{ sizeof($fachadas_triangulares) }} @else 1 @endif;
-    var mt2aRevestir = {{ number_format($mt2, 2, ',', '') }};
-    var perfilBase = {{ number_format($perfilBase, 2, ',', '') }};
-    var perfilJ = {{ number_format($perfilJ, 2, ',', '') }};
-    var perfilL = {{ number_format($perfilL, 2, ',', '') }};
-    var perfilCortagotera = {{ number_format($perfilCortagotera, 2, ',', '') }};
+    var mt2aRevestir = {{ number_format($mt2, 2, '.', '') }};
+    var perfilBase = {{ number_format($perfilBase, 2, '.', '') }};
+    var perfilJ = {{ number_format($perfilJ, 2, '.', '') }};
+    var perfilL = {{ number_format($perfilL, 2, '.', '') }};
+    var perfilCortagotera = {{ number_format($perfilCortagotera, 2, '.', '') }};
 
     $(document).ready(function() {
 
@@ -351,7 +351,7 @@
             calcularTotal();
         });
 
-        $('#btnCalcular').on('click', function(e) {
+        $('#btnCalcular').on('click', function (e) {
             e.preventDefault();
 
             var arrFachadas = new Array();
@@ -361,7 +361,7 @@
             var arrPerfiles = new Array();
             var saltos = 0;
 
-            $('#tableFachada .input_text').each(function(index, element) {
+            $('#tableFachada .input_text').each(function (index, element) {
                 var nombre = "";
                 var alto = 0;
                 var ancho = 0;
@@ -375,7 +375,8 @@
                 if ($(this).hasClass('alto')) {
                     alto = $(this).val();
                     ancho = $(this).parent().next().children(':first-child').val();
-
+                    alto  = alto.toString().replace(',', '.');
+                    ancho  = ancho.toString().replace(',', '.');
                     if (alto > 0 && ancho > 0) {
                         arrFachadas.push({
                             "nombre": nombre,
@@ -388,14 +389,15 @@
                 }
             });
 
-            $('#tableTriangular .input_text').each(function(index, element) {
+            $('#tableTriangular .input_text').each(function (index, element) {
                 var alto = 0;
                 var ancho = 0;
 
                 if ($(this).hasClass('alto')) {
                     alto = $(this).val();
                     ancho = $(this).parent().next().children(':first-child').val();
-
+                    alto  = alto.toString().replace(',', '.');
+                    ancho  = ancho.toString().replace(',', '.');
                     if (alto > 0 && ancho > 0) {
                         arrFachadasTriangulares.push({
                             "nombre": "Fachada - triangular",
@@ -408,13 +410,16 @@
 
             if ($("#puertasyventanas").is(":visible")) {
 
-                $('#tablePuertas .input_text').each(function(index, element) {
+                $('#tablePuertas .input_text').each(function (index, element) {
                     var alto = 0;
                     var ancho = 0;
 
                     if ($(this).hasClass('alto')) {
                         alto = $(this).val();
                         ancho = $(this).parent().next().children(':first-child').val();
+
+                        alto  = alto.toString().replace(',', '.');
+                        ancho  = ancho.toString().replace(',', '.');
 
                         if (alto > 0 && ancho > 0) {
                             arrPuertas.push({
@@ -426,14 +431,15 @@
                     }
                 });
 
-                $('#tableVentanas .input_text').each(function(index, element) {
+                $('#tableVentanas .input_text').each(function (index, element) {
                     var alto = 0;
                     var ancho = 0;
 
                     if ($(this).hasClass('alto')) {
                         alto = $(this).val();
                         ancho = $(this).parent().next().children(':first-child').val();
-
+                        alto  = alto.toString().replace(',', '.');
+                        ancho  = ancho.toString().replace(',', '.');
                         if (alto > 0 && ancho > 0) {
                             arrVentanas.push({
                                 "nombre": "Ventana",
@@ -461,7 +467,6 @@
                 type: 'post',
                 url: '/guardarCalculo',
                 data: {
-                    codigo: "{{ $codigo }}",
                     fachadas_rectangulares: arrFachadas,
                     fachadas_triangulares: arrFachadasTriangulares,
                     puertas: arrPuertas,
@@ -473,31 +478,25 @@
                     perfilJ: perfilJ,
                     perfilCortagotera: perfilCortagotera,
                 },
-                success: function(data) {
+                success: function (data) {
                     window.location.href = "/resultados/" + data;
                 },
-                error: function(request, status, error) {
+                error: function (request, status, error) {
                     alert(jQuery.parseJSON(request.responseText).Message);
                 }
             });
 
         });
 
-        var puertas = @if(is_array($puertas))
-        "{{ sizeof($puertas) }}"
-        @else 0 @endif;
-        var ventanas = @if(is_array($ventanas))
-        "{{ sizeof($ventanas) }}"
-        @else 0 @endif;
-        var perfiles = @if(is_array($perfiles))
-        "{{ sizeof($perfiles) }}"
-        @else 0 @endif;
+        var puertas = @if(is_array($puertas))"{{ sizeof($puertas) }}"@else 0 @endif;
+        var ventanas = @if(is_array($ventanas))"{{ sizeof($ventanas) }}"@else 0 @endif;
+        var perfiles = @if(is_array($perfiles))"{{ sizeof($perfiles) }}"@else 0 @endif;
 
-        if (puertas > 0 || ventanas > 0) {
+        if (puertas != 0 || ventanas != 0) {
             $("#puertasyventanas").slideDown();
         }
 
-        if (perfiles > 0) {
+        if (perfiles != 0) {
             $("#perfiles").slideDown();
         }
 

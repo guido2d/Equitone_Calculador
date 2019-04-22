@@ -122,7 +122,8 @@ $(document).ready(function () {
             if ($(this).hasClass('alto')) {
                 alto = $(this).val();
                 ancho = $(this).parent().next().children(':first-child').val();
-
+                alto  = alto.toString().replace(',', '.');
+                ancho  = ancho.toString().replace(',', '.');
                 if (alto > 0 && ancho > 0) {
                     arrFachadas.push({
                         "nombre": nombre,
@@ -142,7 +143,8 @@ $(document).ready(function () {
             if ($(this).hasClass('alto')) {
                 alto = $(this).val();
                 ancho = $(this).parent().next().children(':first-child').val();
-
+                alto  = alto.toString().replace(',', '.');
+                ancho  = ancho.toString().replace(',', '.');
                 if (alto > 0 && ancho > 0) {
                     arrFachadasTriangulares.push({
                         "nombre": "Fachada - triangular",
@@ -162,7 +164,10 @@ $(document).ready(function () {
                 if ($(this).hasClass('alto')) {
                     alto = $(this).val();
                     ancho = $(this).parent().next().children(':first-child').val();
-
+                    
+                    alto  = alto.toString().replace(',', '.');
+                    ancho  = ancho.toString().replace(',', '.');
+                    
                     if (alto > 0 && ancho > 0) {
                         arrPuertas.push({
                             "nombre": "Puerta",
@@ -180,7 +185,8 @@ $(document).ready(function () {
                 if ($(this).hasClass('alto')) {
                     alto = $(this).val();
                     ancho = $(this).parent().next().children(':first-child').val();
-
+                    alto  = alto.toString().replace(',', '.');
+                    ancho  = ancho.toString().replace(',', '.');
                     if (alto > 0 && ancho > 0) {
                         arrVentanas.push({
                             "nombre": "Ventana",
@@ -203,7 +209,7 @@ $(document).ready(function () {
                 "cantCierreLateral": cantCierreLateral
             });
         }
-
+        
         $.ajax({
             type: 'post',
             url: '/guardarCalculo',
