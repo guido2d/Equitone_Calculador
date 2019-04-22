@@ -8,13 +8,13 @@
                         <div class="o-flex__child u-1/1 u-1/2@tablet">
                             <ul data-webid="footer-linksColumn1">
                                 <li>
-                                    <a href="https://www.cedral.world/es-es/sidings/#por-que-cedral">Why Cedral</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#por-que-cedral">¿Por qué Cedral?</a>
                                 </li>
                                 <li>
-                                    <a href="https://www.cedral.world/es-es/sidings/#fibrocemento">Fibre Cement</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#fibrocemento">Fibrocemento</a>
                                 </li>
                                 <li>
-                                    <a href="https://www.cedral.world/es-es/sidings/#productos">Products</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#productos">Productos</a>
                                 </li>
                             </ul>
                         </div>
@@ -22,13 +22,13 @@
                         <div class="o-flex__child u-1/1 u-1/2@tablet">
                             <ul data-webid="footer-linksColumn2">
                                 <li>
-                                    <a href="https://www.cedral.world/es-es/sidings/#referencias">References</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#referencias">Referencias de obras</a>
                                 </li>
                                 <li>
-                                    <a href="https://www.cedral.world/es-es/sidings/#instalacion">Installation</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#instalacion">Instalación</a>
                                 </li>
                                 <li>
-                                    <a href="https://www.cedral.world/es-es/sidings/#contacto">Contact</a>
+                                    <a href="https://www.cedral.world/es-es/sidings/#contacto">Contacto</a>
                                 </li>
                             </ul>
                         </div>
