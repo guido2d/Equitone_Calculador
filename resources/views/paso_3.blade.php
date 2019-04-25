@@ -42,7 +42,7 @@
                     
                 </table>
             </div>
-            @if(is_array($puertas) and sizeof($puertas) > 0 || is_array($ventanas) and sizeof($ventanas) > 0)
+            @if(is_array($puertas) && sizeof($puertas) > 0 || is_array($ventanas) && sizeof($ventanas) > 0)
             <hr class="dotted">
             <div class="m-wrap">
                 <table id="tableTriangular" class="table-calculator">

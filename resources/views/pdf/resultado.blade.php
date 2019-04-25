@@ -154,40 +154,53 @@
         </table>
     </div>
 
-    <div class="m-wrap">
+    <div class="m-wrap" style="position:relative;display:block;">
         <table id="tableFachada" class="table-calculator">
             <tr>
                 <th></th>
                 <th style="text-align: center;">Alto</th>
                 <th style="text-align: center;">Ancho</th>
             </tr>
-            @if(is_array($fachadas_rectangulares) and sizeof($fachadas_rectangulares) > 0) @foreach($fachadas_rectangulares as $fc)
-            <tr>
-                <td class="first-line">{{ $fc->nombre }}</td>
-                <td class="oline">{{ $fc->alto }} mts</td>
-                <td class="oline">{{ $fc->ancho }} mts</td>
-            </tr>
-            @endforeach @endif @if(is_array($fachadas_triangulares) and sizeof($fachadas_triangulares) > 0) @foreach($fachadas_triangulares as $ft)
-            <tr>
-                <td class="first-line">{{ $ft->nombre }}</td>
-                <td class="oline">{{ $ft->alto }} mts</td>
-                <td class="oline">{{ $ft->ancho }} mts</td>
-            </tr>
-            @endforeach @endif @if(is_array($puertas) and sizeof($puertas) > 0 || is_array($ventanas) and sizeof($ventanas) > 0) @if(is_array($puertas) and sizeof($puertas) > 0) @foreach($puertas as $p)
-            <tr>
-                <td class="first-line">{{ $p->nombre }}</td>
-                <td class="oline">{{ $p->alto }} mts</td>
-                <td class="oline">{{ $p->ancho }} mts</td>
-            </tr>
-            @endforeach @endif @if(is_array($ventanas) and sizeof($ventanas) > 0) @foreach($ventanas as $v)
-            <tr>
-                <td class="first-line">{{ $v->nombre }}</td>
-                <td class="oline">{{ $v->alto }} mts</td>
-                <td class="oline">{{ $v->ancho }} mts</td>
-            </tr>
-            @endforeach @endif
+            @if(is_array($fachadas_rectangulares) and sizeof($fachadas_rectangulares) > 0) 
+                @foreach($fachadas_rectangulares as $fc)
+                    <tr>
+                        <td class="first-line">{{ $fc->nombre }}</td>
+                        <td class="oline">{{ $fc->alto }} mts</td>
+                        <td class="oline">{{ $fc->ancho }} mts</td>
+                    </tr>
+                @endforeach 
+            @endif 
+            @if(is_array($fachadas_triangulares) and sizeof($fachadas_triangulares) > 0) 
+                @foreach($fachadas_triangulares as $ft)
+                    <tr>
+                        <td class="first-line">{{ $ft->nombre }}</td>
+                        <td class="oline">{{ $ft->alto }} mts</td>
+                        <td class="oline">{{ $ft->ancho }} mts</td>
+                    </tr>
+                @endforeach 
+            @endif 
+            @if(is_array($puertas) && sizeof($puertas) > 0 || is_array($ventanas) && sizeof($ventanas) > 0) 
+                @if(is_array($puertas) and sizeof($puertas) > 0) 
+                    @foreach($puertas as $p)
+                        <tr>
+                            <td class="first-line">{{ $p->nombre }}</td>
+                            <td class="oline">{{ $p->alto }} mts</td>
+                            <td class="oline">{{ $p->ancho }} mts</td>
+                        </tr>
+                    @endforeach 
+                @endif 
+                @if(is_array($ventanas) and sizeof($ventanas) > 0) 
+                    @foreach($ventanas as $v)
+                        <tr>
+                            <td class="first-line">{{ $v->nombre }}</td>
+                            <td class="oline">{{ $v->alto }} mts</td>
+                            <td class="oline">{{ $v->ancho }} mts</td>
+                        </tr>
+                    @endforeach 
+                @endif
+            @endif
         </table>
-        @endif @if(is_array($perfiles) and sizeof($perfiles) > 0)
+        @if(is_array($perfiles) and sizeof($perfiles) > 0)
         <hr class="dotted">
         <table class="table-esquinas">
             <tr>
