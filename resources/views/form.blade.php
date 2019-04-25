@@ -150,6 +150,7 @@
                $('.btnSubmit').attr('disabled','disabled');
             },
             success:function(data){ 
+                console.log(data);
                 $('.btnSubmit').html('');
                 $('.btnSubmit').html('Descargar');                  
                 $('.btnSubmit').attr('disabled',false);
