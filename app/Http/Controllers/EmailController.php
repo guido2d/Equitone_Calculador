@@ -15,15 +15,17 @@ class EmailController extends Controller
             "telefono" => $request->get('telefono'),
             "comuna" => $request->get('comuna'),
         );
+        $mtsRevestir = $request->get('mtsRevestir');
+        $tiempo_construccion = $request->get('tiempo_construccion');
         
-        if(isset($request->get('mtsRevestir'))){
+        if(isset($mtsRevestir)){
             $mtsRevestir = $request->get('mtsRevestir');
             array_push($data,[
                 'mtsRevestir' => $mtsRevestir,
             ]);
         }
         
-        if(isset($request->get('tiempo_construccion'))){
+        if(isset($tiempo_construccion)){
             $tiempo_construccion = $request->get('tiempo_construccion');
             array_push($data,[
                 'tiempo_construccion' => $tiempo_construccion,

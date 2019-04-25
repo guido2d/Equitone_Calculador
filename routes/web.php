@@ -11,5 +11,7 @@ Route::get('/ver-pdf/{codigo}', 'CalculadorController@verPDF');
 Route::get('/completar-formulario/{codigo}', 'CalculadorController@completarFormulario');
 Route::get('/completar-formulario-pdf/{codigo}', 'CalculadorController@completarFormularioPDF');
 
+Route::post('/enviar-email', 'EmailController@enviarMail');
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
