@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="row" style="margin-top:20px;">
-                        <div class="row col-md-12">
+                        <div class="row col-md-12 mensajes">
                             @if($pdf == 'no')
                                 <input type="text" name="mtsRevestir" class="w90" placeholder="Cantidad de metros a revestir*" onkeypress="return check(event)"> 
                             @else
@@ -52,9 +52,12 @@
 
                     <div class="row">
                         <div class="col-md-12 text-center mt62 p0">
-                            <a href="{{ asset('/resultados') }}/{{ $codigo }}" class="md-gray-btn">Volver</a> @if($pdf == 'no')
-                            <a href="#" class="md-orange-btn btnSubmit">Enviar</a> @else
-                            <a href="{{ asset('/descargar-pdf') }}/{{ $codigo }}" class="md-orange-btn btnSubmit">Descargar</a> @endif
+                            <a href="{{ asset('/resultados') }}/{{ $codigo }}" class="md-gray-btn">Volver</a> 
+                            @if($pdf == 'no')
+                            <a href="#" class="md-orange-btn btnSubmit">Enviar</a> 
+                            @else
+                            <a href="{{ asset('/descargar-pdf') }}/{{ $codigo }}" class="md-orange-btn btnSubmit">Descargar</a> 
+                            @endif
                         </div>
                     </div>
                 </form>
@@ -68,6 +71,8 @@
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 
 <script>
+    var txtButton = "";
+    
     $('.btnSubmit').on('click', function(e) {
         e.preventDefault();
         var errores = false;
@@ -96,7 +101,7 @@
         }
         
         var email = $('#email');
-        console.log(caracteresCorreoValido(email.val()));
+        
         if(caracteresCorreoValido(email.val()) == false && completos == true){
             $('.requeridos.error').fadeOut('fast');
             $('.requeridos.email').fadeIn();
@@ -113,7 +118,6 @@
 
     // funcion para validar el correo
     function caracteresCorreoValido(email) {
-        console.log(email);
         //var email = $(email).val();
         var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
 
@@ -145,21 +149,27 @@
             type:'POST',
             data: formData,
             beforeSend: function() {
+               txtButton = $('.btnSubmit').html();
                $('.btnSubmit').html('');
-               $('.btnSubmit').html('<i class="fa fa-spin fa-spinner"></i><span class="btn-text"> Aguarde...</span>');
+               $('.btnSubmit').html('Aguarde...');
                $('.btnSubmit').attr('disabled','disabled');
             },
             success:function(data){ 
                 console.log(data);
                 $('.btnSubmit').html('');
-                $('.btnSubmit').html('Descargar');                  
+                $('.btnSubmit').html(txtButton);                  
                 $('.btnSubmit').attr('disabled',false);
-                window.location.href = href;
+                if(data == 1){
+                    var html = '<p class="requeridos" style="color:green;">Su mensaje ha sido enviado.</p>';
+                    $('.mensajes').append(html);
+                }else{
+                    window.location.href = href;    
+                }
             },
             error: function (data) {
                 alert($.parseJSON(data.responseText));
                 $('.btnSubmit').html('');
-                $('.btnSubmit').html('Descargar');                  
+                $('.btnSubmit').html(txtButton);                  
                 $('.btnSubmit').attr('disabled',false);
             }
         });

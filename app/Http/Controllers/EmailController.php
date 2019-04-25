@@ -24,10 +24,12 @@ class EmailController extends Controller
         
         if(isset($mtsRevestir)){
             $subject = "Nueva solicitud de instalador";
+            $rta = 1;
         }
         
         if(isset($tiempo_construccion)){
             $subject = "Nueva cotización";
+            $rta = 2;
         }
         
         Mail::send('email.email', $data, function($message) use($subject){
@@ -39,7 +41,7 @@ class EmailController extends Controller
 
         });
         
-        return 'Su mensaje ha sido enviado correctamente.';
+        return $rta;
         /*return redirect('/')->with('enviado', 'mensaje enviado');*/
         
     }
