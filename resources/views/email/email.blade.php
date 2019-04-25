@@ -10,7 +10,9 @@
     <li>Cantidad de metros a revestir: {{ $mtsRevestir }}</li>
 </ul>
 
-@else
+@endif
+
+@if(isset($tiempo_construccion))
 
 <h4>Nueva cotización</h4>
 <p>Estos son los datos de la persona:</p>

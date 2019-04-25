@@ -39,9 +39,9 @@
                             @else
                                 <select name="tiempo_construccion" id="tiempo_construccion" class="w90" required>
                                     <option value="" selected>Considera realizar la construcción/refacción durante</option>
-                                    <option value="1">3 meses</option>
-                                    <option value="2">6 meses</option>
-                                    <option value="3">Próximo año</option>
+                                    <option value="3 meses">3 meses</option>
+                                    <option value="6 meses">6 meses</option>
+                                    <option value="Próximo año">Próximo año</option>
                                 </select> 
                             @endif
                             <p class="requeridos">(*) Campos requeridos</p>
@@ -57,7 +57,6 @@
                             <a href="{{ asset('/descargar-pdf') }}/{{ $codigo }}" class="md-orange-btn btnSubmit">Descargar</a> @endif
                         </div>
                     </div>
-
                 </form>
             </div>
 
@@ -107,7 +106,8 @@
         if (errores == false) {
             $('.requeridos.error').fadeOut();
             $('.requeridos.email').fadeOut();
-            window.location.href = href;
+            enviarEmail(href);
+            /*window.location.href = href;*/
         }
     });
 
@@ -136,6 +136,32 @@
         patron = /[0-9,]/;
         tecla_final = String.fromCharCode(tecla);
         return patron.test(tecla_final);
+    }
+    
+    function enviarEmail(href){
+        var formData = $('.form-cta').serialize();
+        $.ajax({
+            url: "{{ asset('/enviar-email') }}",
+            type:'POST',
+            data: formData,
+            beforeSend: function() {
+               $('.btnSubmit').html('');
+               $('.btnSubmit').html('<i class="fa fa-spin fa-spinner"></i><span class="btn-text"> Aguarde...</span>');
+               $('.btnSubmit').attr('disabled','disabled');
+            },
+            success:function(data){ 
+                $('.btnSubmit').html('');
+                $('.btnSubmit').html('Descargar');                  
+                $('.btnSubmit').attr('disabled',false);
+                window.location.href = href;
+            },
+            error: function (data) {
+                alert($.parseJSON(data.responseText));
+                $('.btnSubmit').html('');
+                $('.btnSubmit').html('Descargar');                  
+                $('.btnSubmit').attr('disabled',false);
+            }
+        });
     }
 
 </script>
