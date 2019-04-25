@@ -25,7 +25,7 @@
 
                     <div class="row" style="margin-top:20px;">
                         <div class="row col-md-6">
-                            <input type="text" placeholder="Teléfono*" name="phone" id="phone" required>
+                            <input type="text" placeholder="Teléfono*" name="telefono" id="phone" required>
                         </div>
                         <div class="row col-md-6">
                             <input type="text" placeholder="Comuna*" name="comuna" id="comuna" required>
@@ -35,14 +35,15 @@
                     <div class="row" style="margin-top:20px;">
                         <div class="row col-md-12">
                             @if($pdf == 'no')
-                            <input type="text" class="w90" placeholder="Cantidad de metros a revestir*" onkeypress="return check(event)"> 
+                                <input type="text" name="mtsRevestir" class="w90" placeholder="Cantidad de metros a revestir*" onkeypress="return check(event)"> 
                             @else
-                            <select name="tiempo_construccion" id="tiempo_construccion" class="w90" required>
+                                <select name="tiempo_construccion" id="tiempo_construccion" class="w90" required>
                                     <option value="" selected>Considera realizar la construcción/refacción durante</option>
                                     <option value="1">3 meses</option>
                                     <option value="2">6 meses</option>
                                     <option value="3">Próximo año</option>
-                                </select> @endif
+                                </select> 
+                            @endif
                             <p class="requeridos">(*) Campos requeridos</p>
                             <p class="requeridos error">Por favor complete los campos en rojo.</p>
                             <p class="requeridos email">Ingrese un email válido.</p>
