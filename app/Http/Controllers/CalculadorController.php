@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Cotizacion;
+use App\Formulario;
+
 use PDF;
 
 class CalculadorController extends Controller{
@@ -99,9 +101,22 @@ class CalculadorController extends Controller{
         
         return view('paso_3', compact('fachadas_rectangulares', 'fachadas_triangulares', 'puertas', 'ventanas', 'perfiles', 'mt2', 'codigo'));
     }
+
+    public function verResultados($codigo){
+        
+        $cotizaciones = Cotizacion::where('codigo', $codigo)->first();
+        $fachadas_rectangulares = json_decode($cotizaciones->fachadas_rectangulares);
+        $fachadas_triangulares = json_decode($cotizaciones->fachadas_triangulares);
+        $puertas = json_decode($cotizaciones->puertas);
+        $ventanas = json_decode($cotizaciones->ventanas);
+        $perfiles = json_decode($cotizaciones->perfiles);
+        $mt2 = $cotizaciones->mt2aRevestir;
+        
+        return view('ver_resultados', compact('fachadas_rectangulares', 'fachadas_triangulares', 'puertas', 'ventanas', 'perfiles', 'mt2', 'codigo'));
+    }
     
     public function descargarPDF($codigo){
-        
+
         $cotizaciones = Cotizacion::where('codigo', $codigo)->first();
         $fachadas_rectangulares = json_decode($cotizaciones->fachadas_rectangulares);
         $fachadas_triangulares = json_decode($cotizaciones->fachadas_triangulares);
@@ -267,7 +282,6 @@ class CalculadorController extends Controller{
         }else{
             
             /* REPORTE PARA CERRAMIENTO */
-            
             array_push($materiales1,[
                 'posicion' => '1',
                 'material' => 'Siding PIZARREÑO CEDRAL ® 19x3660 mm',
@@ -442,7 +456,7 @@ class CalculadorController extends Controller{
                                              'perfilCortagotera',
                                              'materiales1',
                                              'materiales2'));
-        
+
         return $pdf->download('PizarreñoCedralCalculoMateriales.pdf');
         
     }
@@ -627,11 +641,29 @@ class CalculadorController extends Controller{
         
     }
     
-    public function completarFormulario($codigo){
-        return view('form', ['codigo' => $codigo, 'pdf' => 'no']);
+    public function completarFormulario($codigo, Request $request){
+        $pdf = $request->get('descargar_resultado');
+        $enviar_email = $request->get('enviar_email');
+        $contactar_instalador = $request->get('contactar_instalador');
+
+        return view('form', ['codigo' => $codigo, 'pdf' => $pdf, 'enviar_email' => $enviar_email, 'instalador' => $contactar_instalador]);
     }
     
     public function completarFormularioPDF($codigo){
         return view('form', ['codigo' => $codigo, 'pdf' => 'si']);
+    }
+
+    public function guardarDatos(Request $request){
+
+        $form = new Formulario();
+        $form->nombre = $request->get('nombre');
+        $form->email = $request->get('email');
+        $form->telefono = $request->get('telefono');
+        $form->comuna = $request->get('comuna');
+        $form->codigo_cotizacion = $request->get('codigo');
+        $form->save();
+
+        return 'ok';
+
     }
 }

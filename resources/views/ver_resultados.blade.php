@@ -1,11 +1,4 @@
 @extends('layouts.main')
-@section('css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
-@endsection
-@section('volver')
-<a href="{{ asset('/paso2/') }}/{{ $codigo }}" class="btn-header"><img src="{{ asset('img/icons/arrow.png') }}" alt=""
-        width="32"> Volver</a>
-@endsection
 @section('contenido')
 
 <section class="pasos" id="paso2">
@@ -118,65 +111,7 @@
             </div>
         </div>
         <hr style="margin-bottom: 16px;">
-
-        <div>
-            <p style="font-size:12px;">
-                El resultado de cantidad de materiales a utilizar que recibirá a través de esta herramienta se basa en
-                la información provista manualmente por usted y en base a geometrías estándar y mejores prácticas.
-                <br>
-                Por favor, evaluar los datos informados y, ante cualquier inquietud o necesidad de mayor información,
-                contáctenos a contacto.cl@etexgroup.com.
-            </p>
-        </div>
-
-        <div class="select-group">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <div class="pretty p-image p-plain">
-                        <input type="checkbox" id="descargar_resultado" />
-                        <div class="state">
-                            <img class="image" src="{{ asset('img/checkbox.svg') }}">
-                            <label>Descargar el resultado</label>
-                        </div>
-                    </div>
-
-                    <div class="pretty p-image p-plain">
-                        <input type="checkbox" id="enviar_email" />
-                        <div class="state">
-                            <img class="image" src="{{ asset('img/checkbox.svg') }}">
-                            <label>Enviar a mi mail el resultado</label>
-                        </div>
-                    </div>
-
-                    <div class="pretty p-image p-plain">
-                        <input type="checkbox" id="contactar_instalador" />
-                        <div class="state">
-                            <img class="image" src="{{ asset('img/checkbox.svg') }}">
-                            <label>Contactar a un instalador</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12 text-center mt62 p0 buttons-container">
-                <div class="item item-1">
-                    <a href="{{ asset('/paso2/') }}/{{ $codigo }}" class="big-gray-btn">Volver al <br> paso anterior</a>
-                </div>
-                <div class="item">
-                    <a href="{{ asset('/completar-formulario') }}/{{ $codigo }}" id="btnFinalizar" class="big-orange-btn">Siguiente</a>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
-@endsection
-
-@section('js')
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-<script src="{{ asset('js/paso3.js') }}"></script>
 @endsection

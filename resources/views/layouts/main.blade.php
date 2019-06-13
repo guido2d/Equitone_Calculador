@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="{{ asset('css/cedral.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css?v=1.1') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css?v=1.0') }}">
+
+    @yield('css')
+
 </head>
 
 <body>

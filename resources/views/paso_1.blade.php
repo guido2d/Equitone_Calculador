@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-md-5 p0">
                         <div class="flex-container">
-                            <span class="title">Cerramiento <br>sobre construcción liviana
+                            <span class="title">Tabique <br>de construcción liviana
                                 <br>
                                 <a href="{{ asset('/siguiente?tipo=cerramiento') }}" class="orange-link">Calcular ></a>
                                 </span>

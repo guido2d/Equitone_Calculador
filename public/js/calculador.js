@@ -229,6 +229,7 @@ $(document).ready(function () {
                 window.location.href = "/resultados/" + data;
             },
             error: function (request, status, error) {
+                alert('error');
                 alert(jQuery.parseJSON(request.responseText).Message);
             }
         });
