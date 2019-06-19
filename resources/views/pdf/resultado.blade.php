@@ -138,16 +138,12 @@
     <div class="logo">
         <img src="{{ asset('img/logo_cedral_pdf.png') }}" alt="Logo Cedral" width="300">
     </div>
-    <h2>Cómputo</h2>
+    <h2>Resultados de su cálculo:</h2>
 
     <div class="lineas">
         <table>
             <tr class="grey">
-                @if($titulo == 'revestimiento')
-                <td colspan="2"><img src="{{ asset('img/lineas.png') }}" alt="" width="10"> Revestimiento con PIZARREÑO CEDRAL ®</td>
-                @else
-                <td colspan="2"><img src="{{ asset('img/lineas.png') }}" alt="" width="10"> Cerramiento con PIZARREÑO CEDRAL ® </td>
-                @endif
+                <td colspan="2"><img src="{{ asset('img/lineas.png') }}" alt="" width="10">Revestimiento con PIZARREÑO CEDRAL ®</td>
                 <td style="float:right;">TOTAL &nbsp;| &nbsp;{{ number_format($mt2, 2, '.', '') }} mts<sup>2</sup></td>
             </tr>
         </table>
@@ -292,7 +288,7 @@
         </tr>
         @endforeach
     </table>
-    <p>
+    <p style="border-top:1px solid #586276;">
         1 Descripción tornillo perfiles remate
         <br> 2 Tornillo autoperforante y autoavellanante punta aguda 6x1"
         <br> * No tener en cuenta los materiales 8 y 9 en caso de NO instalarse el Siding PIZARREÑO CEDRAL sobre estructura Omega y aplicarse directamen- te sobre un tablero de virutas orientadas.
@@ -304,7 +300,7 @@
             <br> Por favor, evaluar los datos informados y, ante cualquier inquietud o necesidad de mayor información, contáctenos a contacto.cl@etexgroup.com.
         </p>
         <p style="background-color:#586276;color:white;margin-top:5px;text-align:right;padding:0px 5px;">
-            Sociedad Industrial Pizarreño S.A. / Av. Las Condes 975 - Las Condes Design – Piso 1 – Local 110 / Santiago, Chile <br> T +56 22391 2200 / www.pizarrenocedral.cl / contacto.cl@etexgroup.com
+            Sociedad Industrial Pizarreño S.A. / Av. Las Condes 9765 - Las Condes Design – Piso 1 – Local 110 / Santiago, Chile <br> T +56 22391 2200 / www.pizarrenocedral.cl / contacto.cl@etexgroup.com
         </p>
     </div>
 
