@@ -33,7 +33,6 @@
         .lineas {
             position: relative;
             display: block;
-            border-top: 1px solid #586276;
             border-bottom: 1px solid #586276;
             padding: 10px 0px 10px;
         }
@@ -234,6 +233,10 @@
     </div>
 
     <div class="page-break"></div>
+
+    <div class="logo">
+        <img src="{{ asset('img/logo_cedral_pdf.png') }}" alt="Logo Cedral" width="150">
+    </div>
 
     <div class="lineas">
         <table style="width:100%;">
