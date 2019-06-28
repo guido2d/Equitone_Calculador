@@ -34,6 +34,7 @@ class EmailController extends Controller
         $form->telefono = $request->get('telefono');
         $form->comuna = $request->get('comuna');
         $form->codigo_cotizacion = $request->get('codigo');
+        $form->instalador = ($request->get('instalador') === 'true') ? 'Si' : 'No';
         $form->save();
 
         $subject = 'Nueva cotización realiazada.';

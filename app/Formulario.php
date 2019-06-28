@@ -9,7 +9,7 @@ class Formulario extends Model
     protected $table = "formulario";
 
     protected $fillable = [
-        'nombre', 'email', 'telefono', 'comunica', 'codigo_cotizacion'
+        'nombre', 'email', 'telefono', 'comunica', 'codigo_cotizacion', 'instalador'
     ];
 
 }
