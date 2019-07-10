@@ -15,6 +15,7 @@ use Log;
 
 class EmailController extends Controller
 {
+
     public function enviarMail(Request $request){
         
         $mt2 = Cotizacion::where('codigo', $request->get('codigo'))->first();
@@ -28,6 +29,20 @@ class EmailController extends Controller
             "instalador" => ($request->get('instalador') === 'true') ? 'Si' : 'No'
         );
 
+        $tiempo_construccion = $request->get('tiempo_construccion');
+
+        switch($tiempo_construccion){
+            case "1":
+                $tiempo_construccion = '3 meses';
+                break;
+            case "2":
+                $tiempo_construccion = '6 meses';
+                break;
+            case "3":
+                $tiempo_construccion = 'Próximo año';
+                break;
+        }
+
         $form = new Formulario();
         $form->nombre = $request->get('nombre');
         $form->email = $request->get('email');
@@ -35,6 +50,7 @@ class EmailController extends Controller
         $form->comuna = $request->get('comuna');
         $form->codigo_cotizacion = $request->get('codigo');
         $form->instalador = ($request->get('instalador') === 'true') ? 'Si' : 'No';
+        $form->tiempo_construccion = $tiempo_construccion;
         $form->save();
 
         $subject = 'Nueva cotización realiazada.';
@@ -48,8 +64,6 @@ class EmailController extends Controller
             $message->to('contacto.cl@etexgroup.com', 'Etex Group')->subject($subject);
 
         });
-
-        Log::info($request->all());
 
         if( $request->get('enviar_email') === 'true' ){
 

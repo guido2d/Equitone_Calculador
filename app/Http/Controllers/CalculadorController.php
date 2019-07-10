@@ -655,12 +655,28 @@ class CalculadorController extends Controller{
 
     public function guardarDatos(Request $request){
 
+        $tiempo_construccion = $request->get('tiempo_construccion');
+
+        switch($tiempo_construccion){
+            case "1":
+                $tiempo_construccion = '3 meses';
+                break;
+            case "2":
+                $tiempo_construccion = '6 meses';
+                break;
+            case "3":
+                $tiempo_construccion = 'Próximo año';
+                break;
+        }
+
         $form = new Formulario();
         $form->nombre = $request->get('nombre');
         $form->email = $request->get('email');
         $form->telefono = $request->get('telefono');
         $form->comuna = $request->get('comuna');
         $form->codigo_cotizacion = $request->get('codigo');
+        $form->instalador = ($request->get('instalador') === 'true') ? 'Si' : 'No';
+        $form->tiempo_construccion = $tiempo_construccion;
         $form->save();
 
         return 'ok';

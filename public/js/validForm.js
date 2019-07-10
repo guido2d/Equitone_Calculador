@@ -5,7 +5,6 @@ $('.btnSubmit').on('click', function (e) {
 
     var errores = false;
     var completos = true;
-    // var href = $(this).attr('href');
 
     $('.form-cta').find('input').each(function (index, element) {
         var valor = $(this).val();
@@ -24,6 +23,14 @@ $('.btnSubmit').on('click', function (e) {
     if (caracteresCorreoValido(email.val()) == false && completos == true) {
         $('.requeridos.error').fadeOut('fast');
         $('.requeridos.email').fadeIn();
+        errores = true;
+    }
+
+    var tiempo = $('#tiempo_construccion');
+
+    if(tiempo.val() === 0){
+        tiempo.addClass("error");
+        $('.requeridos.error').fadeIn();
         errores = true;
     }
 

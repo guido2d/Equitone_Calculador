@@ -43,6 +43,17 @@
                     </div>
 
                     <div class="row" style="margin-top:20px;">
+                        <div class="row col-md-12">
+                            <select name="tiempo_construccion" id="tiempo_construccion" class="w90" required>
+                                <option value="0" selected>Considera realizar la construcción/refacción durante*</option>
+                                <option value="1">3 meses</option>
+                                <option value="2">6 meses</option>
+                                <option value="3">Próximo año</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top:20px;">
                         <div class="row col-md-12 mensajes">
                             <p class="requeridos">(*) Campos requeridos</p>
                             <p class="requeridos error">Por favor complete los campos en rojo.</p>
