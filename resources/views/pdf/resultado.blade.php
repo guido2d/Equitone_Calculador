@@ -237,14 +237,12 @@
     <div class="lineas">
         <table style="width:100%;">
             <tr class="grey">
-                <td style="font-size: 12px;">Espesor Siding</td>
-                <td></td>
-                <td style="float:right;font-size: 12px;">6 mm</td>
-                <td style="float:right;font-size: 12px;">8 mm</td>
+                <td style="font-size: 12px;width: 73%">Espesor Siding</td>
+                <td style="float:right;font-size: 12px;width: 14%;">6 mm</td>
+                <td style="float:right;font-size: 12px;width: 12%;">8 mm</td>
             </tr>
             <tr class="grey">
                 <td style="font-size: 12px;">Distancia entre estructura</td>
-                <td></td>
                 <td style="float:right;font-size: 12px;">400 mm</td>
                 <td style="float:right;font-size: 12px;">600 mm</td>
             </tr>
