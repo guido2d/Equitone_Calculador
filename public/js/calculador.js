@@ -10,11 +10,26 @@ $(document).ready(function () {
 
     $('#btnPVSi').on('click', function (e) {
         e.preventDefault();
-        $("#puertasyventanas").slideDown();
+
+        if(mt2aRevestir > 0) {
+            removeGray($(this));
+            removeOrange($('#btnPVNo'));
+            $("#puertasyventanas").slideDown();
+        }else {
+            Swal.fire({
+                text: 'Debe cargar al menos una fachada para poder continuar.',
+                type: 'info',
+                confirmButtonText: 'Ok'
+            })
+        }
     });
 
     $('#btnPVNo').on('click', function (e) {
         e.preventDefault();
+
+        removeGray($(this));
+        removeOrange($('#btnPVSi'));
+
         $("#puertasyventanas").slideUp();
         $('#puertasyventanas .input_text').each(function (index, element) {
             $(this).val("");
@@ -24,12 +39,28 @@ $(document).ready(function () {
 
     $('#btnPerfilesSi').on('click', function (e) {
         e.preventDefault();
-        $("#perfiles").slideDown();
+
+        if(mt2aRevestir > 0) {
+            removeGray($(this));
+            removeOrange($('#btnPerfilesNo'));
+            $("#perfiles").slideDown();
+        }else {
+            Swal.fire({
+                text: 'Debe cargar al menos una fachada para poder continuar.',
+                type: 'info',
+                confirmButtonText: 'Ok'
+            })
+        }
     });
 
     $('#btnPerfilesNo').on('click', function (e) {
         e.preventDefault();
+        removeGray($(this));
+        removeOrange($('#btnPerfilesSi'));
         $("#perfiles").slideUp();
+        $('#tableEsquinas .input_text').each(function() {
+            $(this).val("");
+        });
     });
 
     $('.plus-fachada').on('click', function (e) {
@@ -209,6 +240,11 @@ $(document).ready(function () {
                 "cantCierreLateral": cantCierreLateral
             });
         }
+
+        console.log('mt2aRevestir: ' + mt2aRevestir);
+        console.log('perfilBase: ' + perfilBase);
+        console.log('perfilL: ' + perfilL);
+        console.log('perfilJ: ' + perfilJ);
         
         $.ajax({
             type: 'post',
@@ -229,7 +265,7 @@ $(document).ready(function () {
                 window.location.href = "/resultados/" + data;
             },
             error: function (request, status, error) {
-                alert('error');
+                alert('Error al guardar el cálculo.');
                 alert(jQuery.parseJSON(request.responseText).Message);
             }
         });
@@ -296,6 +332,8 @@ function calcularConAltoTriangular(obj){
 
 function calcularTotal() {
 
+    console.log('== calcularTotal ==');
+
     mt2aRevestir = calcularMtsARevestir();
     
     if (mt2aRevestir < 0) {
@@ -314,8 +352,6 @@ function calcularTotal() {
     $('.totalMts').text(total);
 
     perfilBase = calcularPerfilBase();
-    console.log('perfilBase: ' + perfilBase);
-    console.log('mt2aRevestir: ' + mt2aRevestir);
 }
 
 function calcularMtsARevestir() {
@@ -335,9 +371,12 @@ function calcularMtsARevestir() {
     $('#puertasyventanas .input_text.alto').each(function (index, element) {
         mt2Vanos += calcularConAlto($(this));
     });
-    
-    rta = (parseFloat(mt2Fachada.toFixed(2)) + parseFloat(mt2FachadaTriangular.toFixed(2))) - parseFloat(mt2Vanos.toFixed(2));
-    
+
+    var medidaFachadas = (parseFloat(mt2Fachada.toFixed(2)) + parseFloat(mt2FachadaTriangular.toFixed(2)));
+    mt2Vanos = parseFloat(mt2Vanos.toFixed(2));
+
+    rta = medidaFachadas - mt2Vanos;
+
     return rta;
 }
 
@@ -372,15 +411,24 @@ function calcularPerfilBase() {
 }
 
 function calcularPerfilJyL() {
+    console.log('Calcular perfil J y L');
     /*VALORES*/
     var esquinasExternas = $('#cantExternas').val();
     var esquinasInternas = $('#cantInternas').val();
     var cierreLateral = $('#cantCierreLateral').val();
+    
     var altoFachadaPrincipal = $('#tableFachada .input_text.alto:first').val();
     altoFachadaPrincipal = altoFachadaPrincipal.toString().replace(',', '.');
+    
     var altoVentana1 = $('#tableVentanas .input_text.alto:first').val();
     altoVentana1 = altoVentana1.toString().replace(',', '.');
     
+    if (isNaN(altoVentana1) || altoVentana1 == "") {
+        altoVentana1 = 0;
+    }
+
+    console.log('altoFachadaPrincipal: '  + altoFachadaPrincipal);
+
     /*CALCULOS*/
     var perfilExterno = parseFloat(altoFachadaPrincipal) * parseInt(esquinasExternas);
     var perfilInterno = parseFloat(altoFachadaPrincipal) * parseInt(esquinasInternas);
@@ -388,6 +436,8 @@ function calcularPerfilJyL() {
     var perfilJ1x2 = parseFloat(altoVentana1) * 2;
     var perfilJF1 = (parseFloat(perfilExterno) * 2) + (parseFloat(perfilInterno) * 2) + parseFloat(perfilCierreLateral) + parseFloat(perfilJ1x2);
     var altoRestoVentanas = 0;
+
+    console.log('perfilJ1x2: ' + perfilJ1x2);
     
     $('#tableVentanas tr').find('.input_text.alto').each(function (index, element) {
         var alto = $(this).val();
@@ -398,8 +448,12 @@ function calcularPerfilJyL() {
         altoRestoVentanas += parseFloat(alto) * 2;
     });
     altoRestoVentanas -= perfilJ1x2;
+    console.log('altoRestoVentanas: ' + altoRestoVentanas);
     perfilJ = parseFloat(perfilJF1) + parseFloat(altoRestoVentanas);
     perfilL = perfilExterno;
+
+    console.log('perfilJ: ' + perfilJ);
+    console.log('perfilL: ' + perfilL);
 }
 
 function calcularPerfilCortagotera() {
@@ -427,4 +481,14 @@ function check(e) {
     patron = /[0-9,]/;
     tecla_final = String.fromCharCode(tecla);
     return patron.test(tecla_final);
+}
+
+function removeOrange(element) {
+    element.removeClass('orange-btn');
+    element.addClass('gray-btn');
+}
+
+function removeGray(element) {
+    element.removeClass('gray-btn');
+    element.addClass('orange-btn');
 }

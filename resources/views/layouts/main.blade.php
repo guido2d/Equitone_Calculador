@@ -11,8 +11,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cedral.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css?v=1.2') }}">
-    <link rel="stylesheet" href="{{ asset('css/responsive.css?v=1.0') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css?v=1.4') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css?v=1.1') }}">
 
     @yield('css')
 

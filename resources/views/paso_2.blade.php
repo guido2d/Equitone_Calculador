@@ -67,7 +67,7 @@
             <div class="large-button">
                 <h3>Las superficies a revestir poseen puertas o ventanas?</h3>
                 <div class="btn-container">
-                    <a href="#" class="orange-btn" id="btnPVSi">Si</a>
+                    <a href="#" class="gray-btn" id="btnPVSi">Si</a>
                     <a href="#" class="gray-btn" id="btnPVNo">No</a>
                 </div>
             </div>
@@ -111,7 +111,7 @@
             <div class="large-button">
                 <h3>Quiere utilizar perfiles de inicio y terminación?</h3>
                 <div class="btn-container">
-                    <a href="#" class="orange-btn" id="btnPerfilesSi">Si</a>
+                    <a href="#" class="gray-btn" id="btnPerfilesSi">Si</a>
                     <a href="#" class="gray-btn" id="btnPerfilesNo">No</a>
                 </div>
             </div>
@@ -136,15 +136,15 @@
                                 </tr>
                                 <tr>
                                     <td>Externas</td>
-                                    <td class="oline"><input type="number" class="input_text" id="cantExternas" value="0"></td>
+                                    <td class="oline"><input type="number" class="input_text" id="cantExternas" value="0" min="0"></td>
                                 </tr>
                                 <tr>
                                     <td>Internas</td>
-                                    <td class="oline"><input type="number" class="input_text" id="cantInternas" value="0"></td>
+                                    <td class="oline"><input type="number" class="input_text" id="cantInternas" value="0" min="0"></td>
                                 </tr>
                                 <tr>
                                     <td>Cierre lateral</td>
-                                    <td class="oline"><input type="number" class="input_text" id="cantCierreLateral" value="0"></td>
+                                    <td class="oline"><input type="number" class="input_text" id="cantCierreLateral" value="0" min="0"></td>
                                 </tr>
                             </table>
                         </div>
@@ -178,5 +178,5 @@
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-<script src="{{ asset('js/calculador.js?v=1') }}"></script>
+<script src="{{ asset('js/calculador.js?v=2.5') }}"></script>
 @endsection

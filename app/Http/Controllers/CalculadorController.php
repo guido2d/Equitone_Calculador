@@ -9,7 +9,7 @@ use App\Formulario;
 
 use PDF;
 
-class CalculadorController extends Controller{
+class CalculadorController extends Controller {
     
     public function guardarCookie(Request $request){
         $this->validate($request, [

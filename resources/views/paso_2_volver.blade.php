@@ -94,7 +94,7 @@
             <div class="large-button">
                 <h3>Las superficies a revestir poseen puertas o ventanas?</h3>
                 <div class="btn-container">
-                    <a href="#" class="orange-btn" id="btnPVSi">Si</a>
+                    <a href="#" class="gray-btn" id="btnPVSi">Si</a>
                     <a href="#" class="gray-btn" id="btnPVNo">No</a>
                 </div>
             </div>
@@ -164,7 +164,7 @@
             <div class="large-button">
                 <h3>Quiere utilizar perfiles de inicio y terminación?</h3>
                 <div class="btn-container">
-                    <a href="#" class="orange-btn" id="btnPerfilesSi">Si</a>
+                    <a href="#" class="gray-btn" id="btnPerfilesSi">Si</a>
                     <a href="#" class="gray-btn" id="btnPerfilesNo">No</a>
                 </div>
             </div>
@@ -203,15 +203,15 @@
                                 @else
                                 <tr>
                                     <td>Externas</td>
-                                    <td class="oline"><input type="number" class="input_text" id="cantExternas" value="0"></td>
+                                    <td class="oline"><input type="number" class="input_text" id="cantExternas" value="0" min="0"></td>
                                 </tr>
                                 <tr>
                                     <td>Internas</td>
-                                    <td class="oline"><input type="number" class="input_text" id="cantInternas" value="0"></td>
+                                    <td class="oline"><input type="number" class="input_text" id="cantInternas" value="0" min="0"></td>
                                 </tr>
                                 <tr>
                                     <td>Cierre lateral</td>
-                                    <td class="oline"><input type="number" class="input_text" id="cantCierreLateral" value="0"></td>
+                                    <td class="oline"><input type="number" class="input_text" id="cantCierreLateral" value="0" min="0"></td>
                                 </tr>
                                 @endif
                             </table>
@@ -257,13 +257,28 @@
 
     $(document).ready(function() {
 
-        $('#btnPVSi').on('click', function(e) {
+        $('#btnPVSi').on('click', function (e) {
             e.preventDefault();
-            $("#puertasyventanas").slideDown();
+
+            if(mt2aRevestir > 0) {
+                removeGray($(this));
+                removeOrange($('#btnPVNo'));
+                $("#puertasyventanas").slideDown();
+            }else {
+                Swal.fire({
+                    text: 'Debe cargar al menos una fachada para poder continuar.',
+                    type: 'info',
+                    confirmButtonText: 'Ok'
+                })
+            }
         });
 
         $('#btnPVNo').on('click', function(e) {
             e.preventDefault();
+
+            removeGray($(this));
+            removeOrange($('#btnPVSi'));
+
             $("#puertasyventanas").slideUp();
             $('#puertasyventanas .input_text').each(function(index, element) {
                 $(this).val("");
@@ -271,14 +286,30 @@
             calcularTotal();
         });
 
-        $('#btnPerfilesSi').on('click', function(e) {
+        $('#btnPerfilesSi').on('click', function (e) {
             e.preventDefault();
-            $("#perfiles").slideDown();
+
+            if(mt2aRevestir > 0) {
+                removeGray($(this));
+                removeOrange($('#btnPerfilesNo'));
+                $("#perfiles").slideDown();
+            }else {
+                Swal.fire({
+                    text: 'Debe cargar al menos una fachada para poder continuar.',
+                    type: 'info',
+                    confirmButtonText: 'Ok'
+                })
+            }
         });
 
         $('#btnPerfilesNo').on('click', function(e) {
             e.preventDefault();
+            removeGray($(this));
+            removeOrange($('#btnPerfilesSi'));
             $("#perfiles").slideUp();
+            $('#cantExternas').val(0);
+            $('#cantInternas').val(0);
+            $('#cantCierreLateral').val(0);
         });
 
         $('.plus-fachada').on('click', function(e) {
@@ -494,10 +525,14 @@
 
         if (puertas != 0 || ventanas != 0) {
             $("#puertasyventanas").slideDown();
+            removeGray($('#btnPVSi'));
+            removeOrange($('#btnPVNo'));
         }
 
         if (perfiles != 0) {
             $("#perfiles").slideDown();
+            removeGray($('#btnPerfilesSi'));
+            removeOrange($('#btnPerfilesNo'));
         }
 
     });
@@ -626,6 +661,10 @@
         var altoVentana1 = $('#tableVentanas .input_text.alto:first').val();
         altoVentana1 = altoVentana1.toString().replace(',', '.');
 
+        if (isNaN(altoVentana1) || altoVentana1 == "") {
+            altoVentana1 = 0;
+        }
+
         /*CALCULOS*/
         var perfilExterno = parseFloat(altoFachadaPrincipal) * parseInt(esquinasExternas);
         var perfilInterno = parseFloat(altoFachadaPrincipal) * parseInt(esquinasInternas);
@@ -672,6 +711,16 @@
         patron = /[0-9,]/;
         tecla_final = String.fromCharCode(tecla);
         return patron.test(tecla_final);
+    }
+
+    function removeOrange(element) {
+        element.removeClass('orange-btn');
+        element.addClass('gray-btn');
+    }
+
+    function removeGray(element) {
+        element.removeClass('gray-btn');
+        element.addClass('orange-btn');
     }
 
 </script>

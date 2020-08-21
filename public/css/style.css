@@ -262,12 +262,13 @@ hr.dotted {
     color: white !important;
     width: 94px;
     text-align: center;
+    margin-right: 10px;
 }
 
 .orange-btn:hover {
-    background-color: rgb(158, 158, 158);
-    text-decoration: none;
+    background: #ffa300;
     color: white;
+    text-decoration: none;
 }
 
 .gray-btn:hover {
@@ -346,8 +347,7 @@ hr.dotted {
     color: #4d4e53;
 }
 
-.big-orange-btn:hover,
-.orange-btn:hover {
+.big-orange-btn:hover {
     background: #f9f9f9;
     text-decoration: none;
     color: #4d4e53 !important;
