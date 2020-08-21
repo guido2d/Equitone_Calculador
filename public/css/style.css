@@ -16,6 +16,112 @@
     src: url("fonts/GillSansMTPro-Medium.otf") format("opentype");
 }
 
+:root {
+    --brand__color--white                         : #FFF;
+    --brand__color--default                       : #303135;
+    --brand__color--primary                       : #FCB116;
+    --brand__color--secondary                     : #979797;
+    --brand__color--tertiary                      : #979797;
+    --brand__color--gray-dark-blue                : #596275;
+    --brand__color--gray                          : #9B9C9F;
+    --brand__color--gray-light                    : #F7F7F7;
+    --brand__color--accent                        : #FCB116;
+    --brand__color--danger                        : red;
+    --brand__color--icon                          : #FCB116;
+    --brand__button--font-size                    : 14px;
+    --brand__button--line-height                  : 1.2;
+    --brand__button--font-weight                  : 600;
+    --brand__button--background                   : #FCB116;
+    --brand__button--background-hover             : #FCB116;
+    --brand__button--background-active            : #FCB116;
+    --brand__button--color                        : #FFF;
+    --brand__button--color-hover                  : #FFF;
+    --brand__button--color-active                 : #FFF;
+    --brand__button-icon--size                    : 20px;
+    --brand__button-icon--color                   : #FFF;
+    --brand__button-icon--color-hover             : #FFF;
+    --brand__button-icon--color-active            : #FFF;
+    --brand__button--text-decoration              : none;
+    --brand__button--text-transform               : normal;
+    --brand__button--min-width                    : auto;
+    --brand__button--min-height                   : 40px;
+    --brand__button--border-width                 : 2px;
+    --brand__button--border-style                 : solid;
+    --brand__button--border-color                 : transparent;
+    --brand__button--border-color-hover           : transparent;
+    --brand__button--border-color-active          : transparent;
+    --brand__button--border-radius                : 20px;
+    --brand__button--padding-y                    : 5px;
+    --brand__button--padding-x                    : 25px;
+    --brand__button--margin-right                 : 4px;
+    --brand__button--margin-left                  : 0;
+    --brand__button--margin-top                   : 4px;
+    --brand__button--margin-bottom                : 4px;
+    --brand__button--transition                   : color 0.3s ease;
+    --brand__button--transform                    : none;
+    --brand__button--transform-hover              : none;
+    --brand__button--transform-active             : none;
+    --brand-primary__button--background           : var(--brand__button--background);
+    --brand-primary__button--background-hover     : var(--brand__button--background-hover);
+    --brand-primary__button--background-active    : var(--brand__button--background-active);
+    --brand-primary__button--color                : var(--brand__button--color);
+    --brand-primary__button--color-hover          : var(--brand__button--color-hover);
+    --brand-primary__button--color-active         : var(--brand__button--color-active);
+    --brand-primary__button--border-color         : var(--brand__button--border-color);
+    --brand-primary__button--border-color-hover   : var(--brand__button--border-color-hover);
+    --brand-primary__button--border-color-active  : var(--brand__button--border-color-active);
+    --brand-primary__button-icon--color           : var(--brand__button-icon--color);
+    --brand-primary__button-icon--color-hover     : var(--brand__button-icon--color-hover);
+    --brand-primary__button-icon--color-active    : var(--brand__button-icon--color-active);
+    --brand-secondary__button--font-size          : var(--brand__button--font-size);
+    --brand-secondary__button--line-height        : var(--brand__button--line-height);
+    --brand-secondary__button--font-weight        : var(--brand__button--font-weight);
+    --brand-secondary__button--background         : transparent;
+    --brand-secondary__button--background-hover   : transparent;
+    --brand-secondary__button--background-active  : transparent;
+    --brand-secondary__button--color              : #FCB116;
+    --brand-secondary__button--color-hover        : #aa7302;
+    --brand-secondary__button--color-active       : #aa7302;
+    --brand-secondary__button--border-color       : #FCB116;
+    --brand-secondary__button--border-color-hover : #FCB116;
+    --brand-secondary__button--border-color-active: #FCB116;
+    --brand-secondary__button-icon--color         : #FCB116;
+    --brand-secondary__button-icon--color-active  : #FCB116;
+    --brand-secondary__button-icon--color-hover   : #FCB116;
+    --brand-secondary__button--border-radius      : var(--brand__button--border-radius);
+    --brand-secondary__button--padding-y          : var(--brand__button--padding-y);
+    --brand-secondary__button--padding-x          : var(--brand__button--padding-x);
+    --brand-secondary__button--text-transform     : var(--brand__button--text-transform);
+    --brand-tertiary__button--font-size           : var(--brand__button--font-size);
+    --brand-tertiary__button--line-height         : var(--brand__button--line-height);
+    --brand-tertiary__button--font-weight         : var(--brand__button--font-weight);
+    --brand-tertiary__button--background          : #F7F7F7;
+    --brand-tertiary__button--background-hover    : #F7F7F7;
+    --brand-tertiary__button--background-active   : #F7F7F7;
+    --brand-tertiary__button--color               : #303135;
+    --brand-tertiary__button--color-hover         : #18181a;
+    --brand-tertiary__button--color-active        : #18181a;
+    --brand-tertiary__button--border-color        : var(--brand__button--border-color);
+    --brand-tertiary__button--border-color-hover  : var(--brand__button--border-color-hover);
+    --brand-tertiary__button--border-color-active : var(--brand__button--border-color-active);
+    --brand-tertiary__button-icon--color          : #FCB116;
+    --brand-tertiary__button-icon--color-hover    : #FCB116;
+    --brand-tertiary__button-icon--color-active   : #FCB116;
+    --brand-tertiary__button--border-radius       : var(--brand__button--border-radius);
+    --brand-tertiary__button--padding-y           : var(--brand__button--padding-y);
+    --brand-tertiary__button--padding-x           : var(--brand__button--padding-x);
+    --brand-tertiary__button--text-transform      : var(--brand__button--text-transform);
+    --brand-tertiary__button--text-decoration     :
+}
+
+body {
+    font-family: GillSans;
+}
+
+button {
+    font-family: GillSans;
+}
+
 .p0 {
     padding: 0;
 }
@@ -88,6 +194,7 @@
     position: relative;
     display: block;
     padding: 10px 0px 2px;
+    text-align: right;
 }
 
 .total-row p,
@@ -99,7 +206,7 @@
 }
 
 .total-row p:first-child {
-    color: #ffa300;
+    color: var(--brand__color--primary);
     font-weight: 600;
     margin-right: 15px;
 }
@@ -107,7 +214,7 @@
 .divider-dotted {
     position: absolute;
     height: 27px;
-    border: 1px solid #ffa300;
+    border: 1px solid var(--brand__color--primary);
 }
 
 .total-mt {
@@ -219,9 +326,8 @@ hr.dotted {
     position: relative;
     display: block;
     border-radius: 4px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 9px 9.5px 0.5px rgba(59, 59, 53, 0.35);
-    padding: 32px 50px 27px;
+    background-color: #F6F6F6;
+    padding: 52px 50px 47px;
     margin-bottom: 18px;
 }
 
@@ -597,4 +703,8 @@ hr.dotted {
 
 #gracias img{
     width: 80px;
+}
+
+.primary {
+    color: var(--brand__color--primary) !important;
 }

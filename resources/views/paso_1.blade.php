@@ -1,54 +1,71 @@
 @extends('layouts.main') 
-@section('volver')
-<a href="https://www.cedral.world/es-cl/sidings" target="_blank" class="btn-header"><img src="{{ asset('img/icons/arrow.png') }}" alt="" width="32"> Volver</a>
-@endsection
 
 @section('contenido')
 
-<section class="pasos" id="paso1">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h3>¿Para que será utilizado el Siding Pizarreño Cedral?</h3>
-            </div>
+<!-- PROGRESS BAR -->
+<div class="site__form-header">
+    <!-- progressbar -->
+    <ul id="progressbar">
+        <a href="" class="previous action-button back-arrow">
+            <img src="{{ asset('/img/icons/Icono-regresar.png') }}" alt="" width="20">
+        </a>
+        <li class="active">
+            1
+        </li>
+        <li>
+            <span>2</span>
+        </li>
+        <li>
+            <span>3</span>
+        </li>
+        <li>
+            <span>4</span>
+        </li>
+        <li>
+            <span>5</span>
+        </li>
+        <a href="" class="previous action-button close-form">
+            <img src="{{ asset('/img/icons/Icono-Cerrar.png') }}" alt="" width="20">
+        </a>
+    </ul>
+</div>
+
+<section class="section">
+    <h2 class="fs-title">Seleccionar revestimiento</h2>
+    <div class="revestimiento-box">
+        <div class="img-header">
+            <img src="{{ asset('/img/Revestimiento-Exterior.png') }}" alt="" width="250">
         </div>
-
-        <hr class="divider">
-
-        <div class="row">
-            <div class="col-md-4 box-selection col-md-offset-2">
-                <div class="row">
-                    <div class="col-md-6 p0">
-                        <img src="img/albanileria.png" alt="">
-                    </div>
-                    <div class="col-md-5 p0">
-                        <div class="flex-container">
-                            <span class="title">Revestimiento <br>sobre albañilería
-                                <br>
-                                <a href="{{ asset('/siguiente?tipo=revestimiento') }}" class="orange-link">Calcular ></a>
-                                </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 box-selection" style="margin-left: 25px;">
-                <div class="row">
-                    <div class="col-md-6 p0">
-                        <img src="img/construccion_liviana.png" alt="">
-                    </div>
-                    <div class="col-md-5 p0">
-                        <div class="flex-container">
-                            <span class="title">Tabique <br>de construcción liviana
-                                <br>
-                                <a href="{{ asset('/siguiente?tipo=cerramiento') }}" class="orange-link">Calcular ></a>
-                                </span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="selection-buttons">
+            <button id="btnInterior" class="btn-lines" onclick="selectInterior(this)">Interior (6mm)</button>
+            <button id="btnExterior" class="btn-lines" onclick="selectExterior(this)">Exterior (8mm)</button>
+        </div>
+        <div class="footer-section">
+            <a href="{{ route('step.2') }}" class="btn-large-primary">Siguiente</a>
         </div>
     </div>
 </section>
 
+@endsection
+
+@section('js')
+<script>
+    function selectInterior(e)
+    {
+        var btnInterior = document.getElementById("btnInterior");
+        var btnExterior = document.getElementById("btnExterior");
+        
+        btnInterior.classList.add('active');
+        btnExterior.classList.remove('active');
+    }
+
+    function selectExterior(e)
+    {
+        var btnInterior = document.getElementById("btnInterior");
+        var btnExterior = document.getElementById("btnExterior");
+        
+        btnInterior.classList.remove('active');
+        btnExterior.classList.add('active');
+    }
+</script>
 @endsection

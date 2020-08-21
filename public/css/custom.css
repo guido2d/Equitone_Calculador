@@ -1,0 +1,492 @@
+:root {
+    --brand__color--white                         : #FFF;
+    --brand__color--default                       : #303135;
+    --brand__color--primary                       : #FCB116;
+    --brand__color--secondary                     : #979797;
+    --brand__color--tertiary                      : #979797;
+    --brand__color--gray-dark-blue                : #596275;
+    --brand__color--gray                          : #9B9C9F;
+    --brand__color--gray-light                    : #F7F7F7;
+    --brand__color--accent                        : #FCB116;
+    --brand__color--danger                        : red;
+    --brand__color--icon                          : #FCB116;
+    --brand__button--font-size                    : 14px;
+    --brand__button--line-height                  : 1.2;
+    --brand__button--font-weight                  : 600;
+    --brand__button--background                   : #FCB116;
+    --brand__button--background-hover             : #FCB116;
+    --brand__button--background-active            : #FCB116;
+    --brand__button--color                        : #FFF;
+    --brand__button--color-hover                  : #FFF;
+    --brand__button--color-active                 : #FFF;
+    --brand__button-icon--size                    : 20px;
+    --brand__button-icon--color                   : #FFF;
+    --brand__button-icon--color-hover             : #FFF;
+    --brand__button-icon--color-active            : #FFF;
+    --brand__button--text-decoration              : none;
+    --brand__button--text-transform               : normal;
+    --brand__button--min-width                    : auto;
+    --brand__button--min-height                   : 40px;
+    --brand__button--border-width                 : 2px;
+    --brand__button--border-style                 : solid;
+    --brand__button--border-color                 : transparent;
+    --brand__button--border-color-hover           : transparent;
+    --brand__button--border-color-active          : transparent;
+    --brand__button--border-radius                : 20px;
+    --brand__button--padding-y                    : 5px;
+    --brand__button--padding-x                    : 25px;
+    --brand__button--margin-right                 : 4px;
+    --brand__button--margin-left                  : 0;
+    --brand__button--margin-top                   : 4px;
+    --brand__button--margin-bottom                : 4px;
+    --brand__button--transition                   : color 0.3s ease;
+    --brand__button--transform                    : none;
+    --brand__button--transform-hover              : none;
+    --brand__button--transform-active             : none;
+    --brand-primary__button--background           : var(--brand__button--background);
+    --brand-primary__button--background-hover     : var(--brand__button--background-hover);
+    --brand-primary__button--background-active    : var(--brand__button--background-active);
+    --brand-primary__button--color                : var(--brand__button--color);
+    --brand-primary__button--color-hover          : var(--brand__button--color-hover);
+    --brand-primary__button--color-active         : var(--brand__button--color-active);
+    --brand-primary__button--border-color         : var(--brand__button--border-color);
+    --brand-primary__button--border-color-hover   : var(--brand__button--border-color-hover);
+    --brand-primary__button--border-color-active  : var(--brand__button--border-color-active);
+    --brand-primary__button-icon--color           : var(--brand__button-icon--color);
+    --brand-primary__button-icon--color-hover     : var(--brand__button-icon--color-hover);
+    --brand-primary__button-icon--color-active    : var(--brand__button-icon--color-active);
+    --brand-secondary__button--font-size          : var(--brand__button--font-size);
+    --brand-secondary__button--line-height        : var(--brand__button--line-height);
+    --brand-secondary__button--font-weight        : var(--brand__button--font-weight);
+    --brand-secondary__button--background         : transparent;
+    --brand-secondary__button--background-hover   : transparent;
+    --brand-secondary__button--background-active  : transparent;
+    --brand-secondary__button--color              : #FCB116;
+    --brand-secondary__button--color-hover        : #aa7302;
+    --brand-secondary__button--color-active       : #aa7302;
+    --brand-secondary__button--border-color       : #FCB116;
+    --brand-secondary__button--border-color-hover : #FCB116;
+    --brand-secondary__button--border-color-active: #FCB116;
+    --brand-secondary__button-icon--color         : #FCB116;
+    --brand-secondary__button-icon--color-active  : #FCB116;
+    --brand-secondary__button-icon--color-hover   : #FCB116;
+    --brand-secondary__button--border-radius      : var(--brand__button--border-radius);
+    --brand-secondary__button--padding-y          : var(--brand__button--padding-y);
+    --brand-secondary__button--padding-x          : var(--brand__button--padding-x);
+    --brand-secondary__button--text-transform     : var(--brand__button--text-transform);
+    --brand-tertiary__button--font-size           : var(--brand__button--font-size);
+    --brand-tertiary__button--line-height         : var(--brand__button--line-height);
+    --brand-tertiary__button--font-weight         : var(--brand__button--font-weight);
+    --brand-tertiary__button--background          : #F7F7F7;
+    --brand-tertiary__button--background-hover    : #F7F7F7;
+    --brand-tertiary__button--background-active   : #F7F7F7;
+    --brand-tertiary__button--color               : #303135;
+    --brand-tertiary__button--color-hover         : #18181a;
+    --brand-tertiary__button--color-active        : #18181a;
+    --brand-tertiary__button--border-color        : var(--brand__button--border-color);
+    --brand-tertiary__button--border-color-hover  : var(--brand__button--border-color-hover);
+    --brand-tertiary__button--border-color-active : var(--brand__button--border-color-active);
+    --brand-tertiary__button-icon--color          : #FCB116;
+    --brand-tertiary__button-icon--color-hover    : #FCB116;
+    --brand-tertiary__button-icon--color-active   : #FCB116;
+    --brand-tertiary__button--border-radius       : var(--brand__button--border-radius);
+    --brand-tertiary__button--padding-y           : var(--brand__button--padding-y);
+    --brand-tertiary__button--padding-x           : var(--brand__button--padding-x);
+    --brand-tertiary__button--text-transform      : var(--brand__button--text-transform);
+    --brand-tertiary__button--text-decoration     :
+}
+
+.section {
+    margin-top: 5rem;
+}
+
+.site__form-header {
+    display              : grid;
+    grid-auto-flow       : column;
+    grid-template-columns: 1fr;
+    background           : var(--brand-primary__button--background);
+    height               : 100px;
+}
+
+#progressbar {
+    display              : grid;
+    grid-template-columns: 1fr repeat(5, 5rem) 1fr;
+    list-style           : none;
+    margin               : 0px;
+    justify-items        : center;
+    align-items          : center;
+}
+
+#progressbar li {
+    width        : 28px;
+    line-height  : 28px;
+    color        : white;
+    font-size    : 1rem;
+    text-align   : center;
+    border-radius: 100%;
+}
+
+#progressbar li.active {
+    background: var(--brand__color--white);
+    color     : var(--brand__color--primary);
+}
+
+/*headings*/
+.fs-title {
+    font-size     : 2em;
+    text-transform: none;
+    color         : #A9A9AA;
+    margin-bottom : 10px;
+    font-weight   : 100;
+    text-align    : center;
+}
+
+.revestimiento-box {
+    position: relative;
+    display : block;
+}
+
+.revestimiento-box .img-header {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.revestimiento-box .selection-buttons {
+    position       : relative;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    margin-top     : 40px;
+}
+
+.footer-section {
+    position  : relative;
+    display   : block;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.btn-lines {
+    background   : #fff;
+    margin       : 0 10px;
+    padding      : 6px 15px;
+    padding-right: 35px;
+    padding-top  : 8px;
+    border-radius: 20px;
+    border       : 1px solid #8C9196;
+}
+
+.btn-lines:after {
+    content      : '';
+    width        : 12px;
+    height       : 12px;
+    border-radius: 100%;
+    margin-left  : 10px;
+    position     : absolute;
+    top          : 9px;
+    background   : white;
+    border       : 2px solid var(--brand__color--primary);
+}
+
+.btn-lines.active:after {
+    background  : var(--brand__color--primary);
+    border-color: var(--brand__color--primary);
+}
+
+.btn-lines:focus {
+    outline: none;
+}
+
+.btn-lines.active {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow   : 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow        : 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.btn-large-primary {
+    background     : var(--brand-primary__button--background);
+    font-weight    : bold;
+    color          : white;
+    border         : 0 none;
+    cursor         : pointer;
+    padding        : 10px 5px;
+    text-decoration: none;
+    border-radius  : 20px;
+    font-size      : 1.2em;
+    width          : 15%;
+    padding-top    : 12px;
+}
+
+.btn-large-primary:hover {
+    text-decoration: none;
+}
+
+.product-box {
+    position: relative;
+    display : block;
+}
+
+.product-box .img-header {
+    text-align: center;
+    margin-top: 10px;
+    position  : relative;
+    display   : block;
+}
+
+.product-box .img-header img {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow   : 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow        : 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius     : 12px;
+}
+
+.product-box .img-header .selected {
+    position : absolute;
+    top      : 36%;
+    left     : 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product-title {
+    position: relative;
+    display: block;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: var(--brand__color--gray);
+}
+
+.grid-3-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.grid-3-boxes .item-box{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.grid-3-boxes .box-title {
+    color: var(--brand__color--gray);
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.grid-2-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+}
+
+.grid-2-boxes .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-2-boxes .description {
+    text-align: center;
+    color: var(--brand__color--gray);
+    font-size: 1.2rem;
+    display: block;
+    position: relative;
+    line-height: 20px;
+    margin-top: 20px;
+}
+
+.grid-2-boxes .item .img-box {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.grid-2-boxes .item .img-box.big-box {
+    width: 120px;
+    height: 60px;
+    border-radius: 12px;
+}
+
+.img-box.terminacion-liso {
+    background-image: url('/img/Img-terminacion-liso.png');
+}
+
+.img-box.terminacion-madera {
+    background-image: url('/img/Img-terminacion-madera.png');
+}
+
+.img-box.instalacion-junta-vista {
+    background-image: url('/img/Img-instalacion-Junta-Vista.png');
+}
+
+.img-box.instalacion-solapado {
+    background-image: url('/img/Img-instalacion-Solapado.png');
+}
+
+.img-box.construccion-tradicional {
+    background-image: url('/img/Img-cerramiento-Construccion-tradicional.png');
+    border: 2px solid var(--brand__color--gray-dark-blue);
+}
+
+.img-box.construccion-seco {
+    background-image: url('/img/Img-cerramiento-Construccion-en-seco.png');
+    border: 2px solid var(--brand__color--gray-dark-blue);
+}
+
+.divider {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    height: 60%;
+    width: 2px;
+    background: #EDEDED;
+}
+
+.checked {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30px;
+    height: 30px;
+    background-image: url('/img/icons/Icono-Checkconfondo.png');
+    background-size: cover;
+    display: none;
+}
+
+.grid-2-boxes .item.active .description {
+    color: var(--brand__color--primary);
+}
+
+.grid-2-boxes .item.active .checked{
+    display: block;
+}
+
+.grid-2-boxes .item.active .img-box {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow   : 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow        : 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+}
+
+.color-selectors {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.color-selectors .buttons-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color-selectors .buttons-group span {
+    color: var(--brand__color--gray);
+    font-size: 1.2rem;
+}
+
+.color-selectors .buttons-group .select-natural,
+.color-selectors .buttons-group .select-solido {
+    display: flex;
+    cursor: pointer;
+}
+
+.color-selectors .buttons-group .circle {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--brand__color--gray);
+    border-radius: 100%;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.color-selectors .buttons-group .circle.active {
+    /* border: 2px solid var(--brand__color--primary); */
+    background: var(--brand__color--primary);
+}
+
+.tabs {
+    position: relative;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 100px;
+}
+
+.tabs-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.tabs-box img {
+    width: 100%;
+}
+
+.tabs-box .colors-options {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.tabs-box .colors-options .item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80px;
+}
+
+.tabs-box .colors-options .item .color-img{
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.color-img.color-natural {
+    background-image: url('/img/Img-Color-Natural.png');
+}
+
+.color-img.color-blanco {
+    background-image: url('/img/Img-Color-Blanco.png');
+}
+
+.color-img.color-arena {
+    background-image: url('/img/Img-Color-Arena.png');
+}
+
+.color-img.color-roble {
+    background-image: url('/img/Img-Color-Roble.png');
+}
+
+.color-img.color-caoba {
+    background-image: url('/img/Img-Color-Caoba.png');
+}
+
+.color-img.color-gris {
+    background-image: url('/img/Img-Color-Gris.png');
+}
+
+.tabs-box .colors-options .item .color-title {
+    font-size: 1rem;
+    color: var(--brand__color--gray);
+    position: relative;
+    display: block;
+    margin-top: 10px;
+}
+
+.tabs-box .colors-options .item.active .checked {
+    display: block;
+}
+
+.tabs-box .colors-options .item.active .color-title {
+    color: var(--brand__color--primary);
+}

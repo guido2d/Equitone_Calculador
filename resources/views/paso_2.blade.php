@@ -1,20 +1,36 @@
 @extends('layouts.main') 
-@section('volver')
-<a href="{{ asset('/') }}" class="btn-header"><img src="{{ asset('img/icons/arrow.png') }}" alt="" width="32"> Volver</a>
-@endsection
 @section('contenido')
+
+<!-- PROGRESS BAR -->
+<div class="site__form-header">
+    <!-- progressbar -->
+    <ul id="progressbar">
+        <a href="{{ route('step.2') }}" class="previous action-button back-arrow">
+            <img src="{{ asset('/img/icons/Icono-regresar.png') }}" alt="" width="20">
+        </a>
+        <li class="active">
+            1
+        </li>
+        <li class="active">
+            2
+        </li>
+        <li class="active">
+            3
+        </li>
+        <li>
+            4
+        </li>
+        <li>
+            5
+        </li>
+        <a href="" class="previous action-button close-form">
+            <img src="{{ asset('/img/icons/Icono-Cerrar.png') }}" alt="" width="20">
+        </a>
+    </ul>
+</div>
 
 <section class="pasos" id="paso2">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                @if($titulo == 'cerramiento')
-                <h3>Calculador <span class="selection">cerramiento sobre construcción liviana</span></h3>
-                @else
-                <h3>Calculador <span class="selection">revestimiento sobre albañilería</span></h3>
-                @endif
-            </div>
-        </div>
 
         <hr style="margin-bottom: 0px;">
         <div class="m-wrap">
@@ -30,7 +46,7 @@
             <div class="m-wrap">
                 <div class="col-md-12 p0 mt20">
                     <img src="img/fachada_revestir.png" alt="" style="position: absolute;top: 1px;">
-                    <h4 class="table_title">Fachadas a revestir
+                    <h4 class="table_title"><let class="primary">Fachadas</let> a revestir
                         <let class="light">(Superficie y diseño)</let>
                     </h4>
                 </div>
@@ -65,7 +81,7 @@
         <!--BOTONES-->
         <div class="row">
             <div class="large-button">
-                <h3>Las superficies a revestir poseen puertas o ventanas?</h3>
+                <h3>¿Las superficies a revestir poseen puertas o ventanas?</h3>
                 <div class="btn-container">
                     <a href="#" class="gray-btn" id="btnPVSi">Si</a>
                     <a href="#" class="gray-btn" id="btnPVNo">No</a>
@@ -76,7 +92,7 @@
                 <div class="m-wrap">
                     <div class="col-md-12 p0 mt20">
                         <img src="img/fachada_revestir.png" alt="" style="position: absolute;top: 1px;">
-                        <h4 class="table_title">Vanos
+                        <h4 class="table_title"><let class="primary">Vanos</let>
                             <let class="light">(Puertas y Ventanas)</let>
                         </h4>
                     </div>
@@ -109,7 +125,7 @@
             </section>
 
             <div class="large-button">
-                <h3>Quiere utilizar perfiles de inicio y terminación?</h3>
+                <h3>¿Quiere utilizar perfiles de inicio y terminación?</h3>
                 <div class="btn-container">
                     <a href="#" class="gray-btn" id="btnPerfilesSi">Si</a>
                     <a href="#" class="gray-btn" id="btnPerfilesNo">No</a>
@@ -120,30 +136,39 @@
                 <div class="m-wrap">
                     <div class="col-md-12 p0 mt20">
                         <img src="img/fachada_revestir.png" alt="" style="position: absolute;top: 1px;">
-                        <h4 class="table_title">Esquinas de inicio y terminación
+                        <h4 class="table_title"><let class="primary">Esquinas de inicio y terminación</let>
                             <let class="light">(Externas, Internas y Cierre lateral)</let>
                         </h4>
                     </div>
                     <div class="row">
-                        <div class="col-md-3 p0">
+                        <!-- <div class="col-md-3 p0">
                             <img src="img/esquinas.png" alt="">
-                        </div>
-                        <div class="col-md-8">
+                        </div> -->
+                        <div class="col-md-12">
                             <table id="tableEsquinas" class="table-esquinas">
                                 <tr>
                                     <th></th>
                                     <th>Cantidad</th>
                                 </tr>
                                 <tr>
-                                    <td>Externas</td>
+                                    <td>
+                                        <img src="{{ asset('/img/icons/Icono-Corner-External.png') }}" alt="" width="50" />
+                                        Externas
+                                    </td>
                                     <td class="oline"><input type="number" class="input_text" id="cantExternas" value="0" min="0"></td>
                                 </tr>
                                 <tr>
-                                    <td>Internas</td>
+                                    <td>
+                                        <img src="{{ asset('/img/icons/Icono-Corner-Internal.png') }}" alt="" width="50" />
+                                        Internas
+                                    </td>
                                     <td class="oline"><input type="number" class="input_text" id="cantInternas" value="0" min="0"></td>
                                 </tr>
                                 <tr>
-                                    <td>Cierre lateral</td>
+                                    <td>
+                                        <img src="{{ asset('/img/icons/Icono-Cierre-Lateral.png') }}" alt="" width="50" />
+                                        Cierre lateral
+                                    </td>
                                     <td class="oline"><input type="number" class="input_text" id="cantCierreLateral" value="0" min="0"></td>
                                 </tr>
                             </table>
@@ -166,8 +191,7 @@
 
         <div class="row">
             <div class="col-md-12 text-center mt62 p0">
-                <a href="{{ asset('/') }}" class="big-gray-btn">Volver</a>
-                <a href="{{ asset('/paso3') }}" id="btnCalcular" class="big-orange-btn">Calcular</a>
+                <a href="{{ asset('/paso3') }}" id="btnCalcular" class="big-orange-btn">Siguiente</a>
             </div>
         </div>
     </div>

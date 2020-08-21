@@ -1,8 +1,8 @@
 <?php
 
-Route::view('/', 'paso_1');
+Route::view('/', 'paso_1')->name('step.1');
 Route::get('/siguiente', 'CalculadorController@guardarCookie');
-Route::get('/paso2', 'CalculadorController@paso2');
+Route::get('/paso2', 'CalculadorController@paso2')->name('step.3');
 Route::get('/paso2/{codigo}', 'CalculadorController@paso2Volver');
 Route::post('/guardarCalculo', 'CalculadorController@guardarCalculo');
 Route::get('/resultados/{codigo}', 'CalculadorController@paso3');
@@ -21,3 +21,5 @@ Route::get('gracias', 'EmailController@gracias');
 
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
+
+Route::view('/paso-2', 'paso_1a')->name('step.2');
